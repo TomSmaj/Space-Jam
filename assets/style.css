@@ -1,3 +1,8 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body{
     background-image: url(https://www.socialsamosa.com/wp-content/uploads/2014/12/ABsat-3075.jpg);
     background-repeat: no-repeat;
@@ -6,7 +11,7 @@ body{
     position: relative;
 }
 
-.postingArea{
+.spaceForRent, .postArea{
     opacity:0.75;
     border-radius: 10px;
     margin: 10px;
