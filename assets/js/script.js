@@ -143,7 +143,7 @@ function updateContent() {
             postObject.price = tempVal.price;
             postObject.size = tempVal.size;
             postObject.postId = tempVal.postId;
-            $('.postArea').append(postObject.getHtml());
+            $('.appendTo').append(postObject.getHtml());
         });
     });
 }
