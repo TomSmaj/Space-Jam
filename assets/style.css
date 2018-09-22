@@ -5,3 +5,12 @@ body{
     background-size: cover;
     position: relative;
 }
+
+.postingArea{
+    opacity:0.75;
+    border-radius: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    padding: 20px;
+    background: white;
+}
