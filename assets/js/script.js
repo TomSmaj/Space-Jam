@@ -1,15 +1,15 @@
 
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBpY57_lRYG5Kamd4XFg5B0yBa4d0-wA_Y",
-            authDomain: "space-jam-8cd60.firebaseapp.com",
-            databaseURL: "https://space-jam-8cd60.firebaseio.com",
-            projectId: "space-jam-8cd60",
-            storageBucket: "space-jam-8cd60.appspot.com",
-            messagingSenderId: "850263407084"
-        };
-        firebase.initializeApp(config);
-    
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyBpY57_lRYG5Kamd4XFg5B0yBa4d0-wA_Y",
+    authDomain: "space-jam-8cd60.firebaseapp.com",
+    databaseURL: "https://space-jam-8cd60.firebaseio.com",
+    projectId: "space-jam-8cd60",
+    storageBucket: "space-jam-8cd60.appspot.com",
+    messagingSenderId: "850263407084"
+};
+firebase.initializeApp(config);
+
 
 
 //Nav Bar
@@ -17,7 +17,7 @@
 //Display UserName
 //Login Button (Phase2)
 //Check UserLogin on PageLoad
-let loggedIn=false;
+let loggedIn = false;
 
 //If no user is logged in, require login(Phase 2)
 
@@ -71,36 +71,109 @@ let testUser = {
 }
 */
 
-$(document).ready (function(){
+//varaibles from an object from firebase are temporairly transferred to this object
+//the getHtml function us then used to write the HTML containing all the information for a post to the document
+let postObject = {
+    postId: 1000,
+    host: 'testHost',
+    title: 'test Post Title',
+    address: '2405 Robert Dedman Dr #1 Austin, Texas 78712',
+    price: 30,
+    image: 'testImg.jpg',
+    size: 'small',
+    info: 'This is a test space. Please rent me.',
+    availability: 'Every Saturday',
+    status: false,
+    phone: "",
+    gKey: "AIzaSyAF8WmkI7S-sD3r40t29wi15vs4Czp60Go",
 
-    postRef.push(testPost);
-    hostRef.push(testHost);
-    userRef.push(testUser);
-    userIdRef.set(1000);
-    
+    getHtml: function () {
+        return `<div class="row postArea">
+        <div class="row text-center">
+            <div class="jamSpace col-sm-6">
+                [space img]
+            </div>
+            <div class="bookingInfo col-sm-6">
+                <p>address: ${this.address} </p>
+                <p>phone number: ${this.phone} </p>
+                <p>price: ${this.price} </p>
+            </div>
+        </div>
 
-//Waiting for user to click login    
+        <div class="row text-center">
+            <div class="googleMaps col-sm-6">
+            <iframe
+                width="600"
+                height="450"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
+            </iframe>
+          
+            </div>
+            <div class="bookingConfirmation col-sm-6">
+                <button type="button" class="${this.postId} btn btn-block">Book</button>
 
-//$(".loginBtn").on('click', function(){
-//})
+            </div>
+        </div>
+    </div>`
 
-/*
-if (loggedIn){
-    updateNavBar();
-    //Display Username on Nav bar, change to log out button
-    updateContent();
-    //Display posts from FB (picture, google map, content, and book button)
+    }
 
 }
-*/
 
-/*
-$(document).on('click', ".bookBtn", function(event){
-    let targ = event.target;
-    //Target Variable is the button that has been clicked
-    let postId = targ.attr('.postId');
-    //Grab the content from Firebase - find which post has the ID, match with book Button, assign to renter
-})*/
+function updateContent() {
+    //console.log('reached');
+    postRef.once('value', function (snapshot) {
+        //console.log('reached');
+        snapshot.forEach(function (child) {
+            //console.log('reached');
+            //console.log(child.val().title);
+            let tempVal = child.val();
+            console.log(tempVal.title);
+            postObject.title = tempVal.title;
+            postObject.info = tempVal.info;
+            postObject.address = tempVal.address;
+            postObject.phone = tempVal.phone;
+            postObject.price = tempVal.price;
+            postObject.size = tempVal.size;
+            postObject.postId = tempVal.postId;
+            $('.appendTo').append(postObject.getHtml());
+        });
+    });
+}
+
+$(document).ready(function () {
+    let loggedInObj;
+    loggedInObj = JSON.parse(localStorage.getItem("loggedInObj"));
+    console.log(loggedInObj);
+
+    if (loggedInObj[0]) {
+        if(loggedInObj[1] === "user"){
+            //updateNavBar();
+            //Display Username on Nav bar, change to log out button
+            updateContent();
+            //Display posts from FB (picture, google map, content, and book button)
+            console.log("user logged in");
+        }
+        else if(loggedInObj[1] === "host"){
+            console.log("host logged in");
+            //updateHostPosts();
+        }
+        else{console.log("not user or host");}
+    }
+    else{console.log("not logged in");}
+
+   
+
+    /*
+    $(document).on('click', ".bookBtn", function(event){
+        let targ = event.target;
+        //Target Variable is the button that has been clicked
+        let postId = targ.attr('.postId');
+        //Grab the content from Firebase - find which post has the ID, match with book Button, assign to renter
+    })*/
+
+
 
 
 

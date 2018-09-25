@@ -25,7 +25,7 @@
     <!--FireBase scrip tag-->
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
     <!--JavaScript scrip tag-->
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/login.js"></script>
 
     <!-- external CSS styling -->
     <link rel="stylesheet" href="assets/style.css">
@@ -42,11 +42,7 @@
 </head>
 
 <body>
-
-
-
     <div class="pageWrap">
-        <!-- bootstrap navigation bar -->
         <div class="container">
             <nav class="navbar sticky-top">
                 <div class="container-fluid">
@@ -55,7 +51,7 @@
                     </div>
                     <div id="myNavbar">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="html/hostOrRent.html"><span class="glyphicon glyphicon-user"></span><span> Sign Up</span></a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span><span> Sign Up</span></a></li>
                             <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span><span> Login</span></a></li>
                             <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class=" caret"></span>Number
                                     in band</a>
@@ -75,60 +71,21 @@
                     </div>
                 </div>
             </nav>
-        </div>
+             </div>
 
-        <!-- posting space-->
-
-
-        <div class="row wrapper">
-
-            <div class="col-lg-1"></div>
-            <div class="col-lg-10">
-                <!--First Display Box-->
-                <div class="row">
-                    <div class="col-sm-1"></div>
-
-                    <div class="spaceForRent col-sm-10">
-                        <h2 class="text-center"> Space for Rent</h2>
-                        <hr>
-                        <h5 class="text-center">Is your band in a jam?</h5>
+             <div class="formContainer">
+            <div class="row" id="testForm">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="formRow">
+                    <p>Username: <input type="text" class="userName"></p>
+                    <p>Password: <input type="text" class="passWord"></p>
+                    <p><button type="button" class="submitBtn btn btn-block">Login</button></p>
                     </div>
-                </div>
-
-                <div class="row appendTo">
-                    <!--<div class="col-lg-1"></div>
-        <div class="col-lg-10"> -->
-
-                    <!--Equal to ONE posting-->
-                    <div class="row postArea">
-                        <div class="row text-center">
-                            <div class="jamSpace col-sm-6">
-                                [space img]
-                            </div>
-                            <div class="bookingInfo col-sm-6">
-                                <p> address</p>
-                                <p> phone number</p>
-                                <p> price</p>
-                            </div>
-                        </div>
-
-                        <div class="row text-center">
-                            <div class="googleMaps col-sm-6">
-                                [google map api]
-                            </div>
-                            <div class="bookingConfirmation col-sm-6">
-                                <button type="button" class="btn btn-block">Book</button>
-
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+            </div>
         </div>
-    </div>
-
-
 </body>
 
 </html>
