@@ -71,8 +71,11 @@ let testUser = {
 }
 */
 
+<<<<<<< HEAD
 //varaibles from an object from firebase are temporairly transferred to this object
 //the getHtml function us then used to write the HTML containing all the information for a post to the document
+=======
+>>>>>>> 1b00b76483740738a4db254deda9c30c00fc43b5
 let postObject = {
     postId: 1000,
     host: 'testHost',
@@ -84,6 +87,7 @@ let postObject = {
     info: 'This is a test space. Please rent me.',
     availability: 'Every Saturday',
     status: false,
+<<<<<<< HEAD
     phone: "",
     gKey: "AIzaSyAF8WmkI7S-sD3r40t29wi15vs4Czp60Go",
 
@@ -113,6 +117,44 @@ let postObject = {
             <div class="bookingConfirmation col-sm-6">
                 <button type="button" class="${this.postId} btn btn-block">Book</button>
 
+=======
+
+    getHtml: function () {
+        return `<div class="row">
+        <div class="col-sm-1"></div>
+
+        <div class="postingArea col-sm-10">
+            <h2 class="text-center"><p>${this.title}</p></h2>
+            <hr>
+            <div class="row">
+                <div class="landingPageGreeting">
+                    <h5 class="text-center"><p>Description: ${this.info}</p></h5>
+                </div>
+            </div>
+
+
+            <div class="row text-center">
+                <div class="jamSpace col-sm-6">
+                    [space img]
+                </div>
+                <div class="bookingInfo col-sm-6">
+
+                    <p>Address: ${this.address}</p>
+                    <p>Phone: ${this.phone}</p>
+                    <p>Price: ${this.price}</p>
+                    <p>Size: ${this.size}</p>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="googleMaps col-sm-6">
+                    [google map api]
+                </div>
+                <div class="bookingConfirmation col-sm-6">
+                    <button type="button" class=" ${this.postId} btn btn-block">Book</button>
+
+                </div>
+>>>>>>> 1b00b76483740738a4db254deda9c30c00fc43b5
             </div>
         </div>
     </div>`
@@ -121,6 +163,10 @@ let postObject = {
 
 }
 
+<<<<<<< HEAD
+=======
+let loggedUser = 'testUser';
+>>>>>>> 1b00b76483740738a4db254deda9c30c00fc43b5
 function updateContent() {
     //console.log('reached');
     postRef.once('value', function (snapshot) {
@@ -143,6 +189,7 @@ function updateContent() {
 }
 
 $(document).ready(function () {
+<<<<<<< HEAD
     let loggedInObj;
     loggedInObj = JSON.parse(localStorage.getItem("loggedInObj"));
     console.log(loggedInObj);
@@ -174,6 +221,32 @@ $(document).ready(function () {
     })*/
 
 
+=======
+    loggedIn = true;
+
+    //Waiting for user to click login    
+
+    //$(".loginBtn").on('click', function(){
+    //})
+
+
+    if (loggedIn) {
+        //updateNavBar();
+        //Display Username on Nav bar, change to log out button
+        updateContent();
+        //Display posts from FB (picture, google map, content, and book button)
+    }
+
+   
+
+    /*
+    $(document).on('click', ".bookBtn", function(event){
+        let targ = event.target;
+        //Target Variable is the button that has been clicked
+        let postId = targ.attr('.postId');
+        //Grab the content from Firebase - find which post has the ID, match with book Button, assign to renter
+    })*/
+>>>>>>> 1b00b76483740738a4db254deda9c30c00fc43b5
 
 
 
