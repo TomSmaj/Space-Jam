@@ -85,6 +85,7 @@ let postObject = {
     availability: 'Every Saturday',
     status: false,
     phone: "",
+    topMusic: "",
     gKey: "AIzaSyAF8WmkI7S-sD3r40t29wi15vs4Czp60Go",
 
     getHtml: function () {
@@ -121,6 +122,8 @@ let postObject = {
 
 }
 
+let loggedInUser = {};
+
 function updateContent() {
     //console.log('reached');
     postRef.once('value', function (snapshot) {
@@ -137,9 +140,42 @@ function updateContent() {
             postObject.price = tempVal.price;
             postObject.size = tempVal.size;
             postObject.postId = tempVal.postId;
+            postObject.topMusic = tempVal.topMusic;
             $('.appendTo').append(postObject.getHtml());
         });
     });
+    console.log("logged in user: " + loggedInUser);
+}
+
+function getUserObj(name, type){
+    if(type === "user"){
+       userRef.once('value', function (snapshot) {
+        snapshot.forEach(function (child) {
+            let tempVal = child.val();
+            console.log("tempVal name:" + tempVal.userName);
+            console.log("name:" + name);
+            if(tempVal.userName === name){
+                    console.log("user found in firebsae")
+                    loggedInUser = tempVal;
+                    updateContent();
+                }
+            });
+        }); 
+    }
+    else if(type === "host"){
+        hostRef.once('value', function (snapshot) {
+         snapshot.forEach(function (child) {
+            let tempVal = child.val();
+            if(tempVal.userName === name){
+                    console.log("host found in firebsae")
+                    loggedInUser = tempVal;
+                    console.log("host object: " + JSON.stringify(loggedInUser));
+                    updateHostPosts();
+                }
+            });
+        }); 
+    }
+    
 }
 
 $(document).ready(function () {
@@ -149,15 +185,14 @@ $(document).ready(function () {
 
     if (loggedInObj[0]) {
         if(loggedInObj[1] === "user"){
-            //updateNavBar();
-            //Display Username on Nav bar, change to log out button
-            updateContent();
-            //Display posts from FB (picture, google map, content, and book button)
             console.log("user logged in");
+            getUserObj(loggedInObj[2], "user");
+            //program now moves to getUserObj, and from getUserObj to updateContent
         }
         else if(loggedInObj[1] === "host"){
             console.log("host logged in");
-            //updateHostPosts();
+            getUserObj(loggedInObj[2], "host"); 
+            //program now moves to getUserObj, and from getUserObj to updateHostPosts
         }
         else{console.log("not user or host");}
     }
