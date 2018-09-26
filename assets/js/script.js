@@ -112,7 +112,7 @@ let postObject = {
             </iframe>
             <img src = ${getMusicPic(`${this.topMusic[0]}`)} />
             <img src = ${getMusicPic(`${this.topMusic[1]}`)} />
-            <img src = ${getMusicPic(`${this.topMusic[2]}`)} />
+            <img src = '${getMusicPic(`${this.topMusic[2]}`)}' />
             </div>
             <div class="bookingConfirmation col-sm-6">
                 <button type="button" class="${this.postId} btn btn-block">Book</button>
@@ -132,7 +132,7 @@ function getMusicPic(ArtistName){
         method: "GET"
       }).then(function(response) {
           console.log(response.results.artistmatches.artist[0].image[2]['#text']);
-        return response.results.artistmatches.artist[0].image[3]['#text'];
+        return response.results.artistmatches.artist[0].image[2]['#text'];
       })
     }
 
