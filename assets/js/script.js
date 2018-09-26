@@ -110,9 +110,9 @@ let postObject = {
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
-            <img src = ${getMusicPic(`${this.topMusic[0]}`)} />
-            <img src = ${getMusicPic(`${this.topMusic[1]}`)} />
-            <img src = '${getMusicPic(`${this.topMusic[2]}`)}' />
+            <img class='artistImage imageOne-${this.postId}' src="" />
+            <img class='artistImage imageTwo-${this.postId}' src='' />
+            <img class='artistImage imageThree-${this.postId}' src='' />
             </div>
             <div class="bookingConfirmation col-sm-6">
                 <button type="button" class="${this.postId} btn btn-block">Book</button>
@@ -123,18 +123,14 @@ let postObject = {
     }
 
 }
-//FIX THIS tomorrow
-function getMusicPic(ArtistName){
-    queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + ArtistName + "&api_key=5e659e2a0405afeb019f7b17483f1df8&format=json";
-    //console.log(ArtistName);
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function(response) {
-          console.log(response.results.artistmatches.artist[0].image[2]['#text']);
-        return response.results.artistmatches.artist[0].image[2]['#text'];
-      })
-    }
+
+function updateImage(selector, artist){
+    queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + artist + "&api_key=5e659e2a0405afeb019f7b17483f1df8&format=json";
+
+    $.get(queryURL).then(response => {
+        $(selector).attr("src", response.results.artistmatches.artist[0].image[2]['#text'])
+    })
+}
 
 
 
@@ -158,6 +154,10 @@ function updateContent() {
             postObject.postId = tempVal.postId;
             postObject.topMusic = tempVal.topMusic;
             $('.appendTo').append(postObject.getHtml());
+
+            updateImage(".imageOne-" + postObject.postId, postObject.topMusic[0])
+            updateImage(".imageTwo-" + postObject.postId, postObject.topMusic[1])
+            updateImage(".imageThree-" + postObject.postId, postObject.topMusic[2])
         });
     });
     console.log("logged in user: " + loggedInUser);
