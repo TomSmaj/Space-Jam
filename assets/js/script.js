@@ -70,8 +70,6 @@ let testUser = {
 
 }
 */
-
-=======
 //varaibles from an object from firebase are temporairly transferred to this object
 //the getHtml function us then used to write the HTML containing all the information for a post to the document
 let postObject = {
@@ -95,26 +93,39 @@ let postObject = {
             <div class="jamSpace col-sm-6">
                 [space img]
             </div>
-            <div class="bookingInfo col-sm-6">
-                <p>address: ${this.address} </p>
-                <p>phone number: ${this.phone} </p>
-                <p>price: ${this.price} </p>
-            </div>
+           <div class="favBand col-sm-6">
+                <div class="favBand1">BandBandBandBandBandBand</div>
+                <div class="favBand2">BandBandBandBandBandBandBand</div>
+                <div class="favBand3">BandBandBandBandBandBandBand</div>
         </div>
+        </div>
+
+        <br>
+        <br>
 
         <div class="row text-center">
             <div class="googleMaps col-sm-6">
             <iframe
-                width="600"
-                height="450"
+                width="100%"
+                height="150%"
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
           
             </div>
-            <div class="bookingConfirmation col-sm-6">
-                <button type="button" class="${this.postId} btn btn-block">Book</button>
 
+            <div class="bookingInfo col-sm-6">
+                    <p>address: ${this.address} </p>
+                    <p>phone number: ${this.phone} </p>
+                    <p>price: ${this.price} </p>
+                </div>
+
+            </div>
+            <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="bookingConfirmation col-sm-2">
+            <button type="button" class="${this.postId} btn btn-block">Book</button>
+            </div>
             </div>
         </div>
     </div>`
