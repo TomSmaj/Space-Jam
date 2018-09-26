@@ -70,6 +70,7 @@ let testUser = {
 
 }
 */
+
 //varaibles from an object from firebase are temporairly transferred to this object
 //the getHtml function us then used to write the HTML containing all the information for a post to the document
 let postObject = {
@@ -84,6 +85,7 @@ let postObject = {
     availability: 'Every Saturday',
     status: false,
     phone: "",
+    topMusic: [],
     gKey: "AIzaSyAF8WmkI7S-sD3r40t29wi15vs4Czp60Go",
 
 
@@ -111,8 +113,11 @@ let postObject = {
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
-          
+            <img class='artistImage imageOne-${this.postId}' src="" />
+            <img class='artistImage imageTwo-${this.postId}' src='' />
+            <img class='artistImage imageThree-${this.postId}' src='' />
             </div>
+
 
             <div class="bookingInfo col-sm-6">
                     <p>address: ${this.address} </p>
@@ -126,6 +131,7 @@ let postObject = {
             <div class="bookingConfirmation col-sm-2">
             <button type="button" class="${this.postId} btn btn-block">Book</button>
             </div>
+
             </div>
         </div>
     </div>`
@@ -133,6 +139,18 @@ let postObject = {
     }
 
 }
+
+function updateImage(selector, artist){
+    queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + artist + "&api_key=5e659e2a0405afeb019f7b17483f1df8&format=json";
+
+    $.get(queryURL).then(response => {
+        $(selector).attr("src", response.results.artistmatches.artist[0].image[2]['#text'])
+    })
+}
+
+
+
+let loggedInUser = {};
 
 function updateContent() {
     //console.log('reached');
@@ -150,9 +168,80 @@ function updateContent() {
             postObject.price = tempVal.price;
             postObject.size = tempVal.size;
             postObject.postId = tempVal.postId;
+            postObject.topMusic = tempVal.topMusic;
+
             $('.appendTo').append(postObject.getHtml());
+
+            updateImage(".imageOne-" + postObject.postId, postObject.topMusic[0])
+            updateImage(".imageTwo-" + postObject.postId, postObject.topMusic[1])
+            updateImage(".imageThree-" + postObject.postId, postObject.topMusic[2])
         });
     });
+    console.log("logged in user: " + loggedInUser);
+}
+
+function updateHostPosts(){
+    console.log("host post ids: " + loggedInUser.posts);
+    tempStr = loggedInUser.posts.toString();
+    let arrID = [];
+    console.log(typeof(tempStr));
+    if(tempStr.includes(",")){
+        arrID = tempStr.split(",");
+    }
+    else{
+        arrID.push(tempStr);
+    }
+    //query postID firebase, when there is a match, re-do what's inside of update content
+    postRef.once('value', function (snapshot) {
+        snapshot.forEach(function (child) {
+            let tempVal = child.val();
+            for(let i = 0; i < arrID.length; i++){
+                if(tempVal.postId.toString() === arrID[i]){
+                    console.log("host post match");
+                    postObject.title = tempVal.title;
+                    postObject.info = tempVal.info;
+                    postObject.address = tempVal.address;
+                    postObject.phone = tempVal.phone;
+                    postObject.price = tempVal.price;
+                    postObject.size = tempVal.size;
+                    postObject.postId = tempVal.postId;
+                    postObject.topMusic = tempVal.topMusic;
+                    $('.appendTo').append(postObject.getHtml());
+                }
+            }
+        });
+    });
+}
+
+function getUserObj(name, type){
+    if(type === "user"){
+       userRef.once('value', function (snapshot) {
+        snapshot.forEach(function (child) {
+            let tempVal = child.val();
+            console.log("tempVal name:" + tempVal.userName);
+            console.log("name:" + name);
+            if(tempVal.userName === name){
+                    console.log("user found in firebsae")
+                    loggedInUser = tempVal;
+                    updateContent();
+                }
+            });
+        }); 
+    }
+    else if(type === "host"){
+        hostRef.once('value', function (snapshot) {
+         snapshot.forEach(function (child) {
+            let tempVal = child.val();
+            if(tempVal.userName === name){
+                    console.log("host found in firebsae")
+                    loggedInUser = tempVal;
+                    console.log("host object: " + JSON.stringify(loggedInUser));
+                    updateHostPosts();
+                }
+            });
+        }); 
+    }
+    
 }
 
 $(document).ready(function () {
@@ -163,20 +252,19 @@ $(document).ready(function () {
 
     if (loggedInObj[0]) {
         if(loggedInObj[1] === "user"){
-            //updateNavBar();
-            //Display Username on Nav bar, change to log out button
-            updateContent();
-            //Display posts from FB (picture, google map, content, and book button)
             console.log("user logged in");
+            getUserObj(loggedInObj[2], "user");
+            //program now moves to getUserObj, and from getUserObj to updateContent
         }
         else if(loggedInObj[1] === "host"){
             console.log("host logged in");
-            //updateHostPosts();
+            getUserObj(loggedInObj[2], "host"); 
+            //program now moves to getUserObj, and from getUserObj to updateHostPosts
         }
         else{console.log("not user or host");}
     }
     else{console.log("not logged in");}
-  
+
 
 
 
