@@ -96,9 +96,9 @@ let postObject = {
                 [space img]
             </div>
            <div class="favBand col-sm-6">
-                <div class="favBand1">BandBandBandBandBandBand</div>
-                <div class="favBand2">BandBandBandBandBandBandBand</div>
-                <div class="favBand3">BandBandBandBandBandBandBand</div>
+           <img class='favBand1 imageOne-${this.postId}' src="" />
+           <img class='favBand2 imageTwo-${this.postId}' src='' />
+           <img class='favBand3 imageThree-${this.postId}' src='' />
         </div>
         </div>
 
@@ -113,9 +113,7 @@ let postObject = {
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
-            <img class='artistImage imageOne-${this.postId}' src="" />
-            <img class='artistImage imageTwo-${this.postId}' src='' />
-            <img class='artistImage imageThree-${this.postId}' src='' />
+            
             </div>
 
 
@@ -140,7 +138,7 @@ let postObject = {
 
 }
 
-function updateImage(selector, artist){
+function updateImage(selector, artist) {
     queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + artist + "&api_key=5e659e2a0405afeb019f7b17483f1df8&format=json";
 
     $.get(queryURL).then(response => {
@@ -180,23 +178,23 @@ function updateContent() {
     console.log("logged in user: " + loggedInUser);
 }
 
-function updateHostPosts(){
+function updateHostPosts() {
     console.log("host post ids: " + loggedInUser.posts);
     tempStr = loggedInUser.posts.toString();
     let arrID = [];
-    console.log(typeof(tempStr));
-    if(tempStr.includes(",")){
+    console.log(typeof (tempStr));
+    if (tempStr.includes(",")) {
         arrID = tempStr.split(",");
     }
-    else{
+    else {
         arrID.push(tempStr);
     }
     //query postID firebase, when there is a match, re-do what's inside of update content
     postRef.once('value', function (snapshot) {
         snapshot.forEach(function (child) {
             let tempVal = child.val();
-            for(let i = 0; i < arrID.length; i++){
-                if(tempVal.postId.toString() === arrID[i]){
+            for (let i = 0; i < arrID.length; i++) {
+                if (tempVal.postId.toString() === arrID[i]) {
                     console.log("host post match");
                     postObject.title = tempVal.title;
                     postObject.info = tempVal.info;
@@ -213,35 +211,35 @@ function updateHostPosts(){
     });
 }
 
-function getUserObj(name, type){
-    if(type === "user"){
-       userRef.once('value', function (snapshot) {
-        snapshot.forEach(function (child) {
-            let tempVal = child.val();
-            console.log("tempVal name:" + tempVal.userName);
-            console.log("name:" + name);
-            if(tempVal.userName === name){
+function getUserObj(name, type) {
+    if (type === "user") {
+        userRef.once('value', function (snapshot) {
+            snapshot.forEach(function (child) {
+                let tempVal = child.val();
+                console.log("tempVal name:" + tempVal.userName);
+                console.log("name:" + name);
+                if (tempVal.userName === name) {
                     console.log("user found in firebsae")
                     loggedInUser = tempVal;
                     updateContent();
                 }
             });
-        }); 
+        });
     }
-    else if(type === "host"){
+    else if (type === "host") {
         hostRef.once('value', function (snapshot) {
-         snapshot.forEach(function (child) {
-            let tempVal = child.val();
-            if(tempVal.userName === name){
+            snapshot.forEach(function (child) {
+                let tempVal = child.val();
+                if (tempVal.userName === name) {
                     console.log("host found in firebsae")
                     loggedInUser = tempVal;
                     console.log("host object: " + JSON.stringify(loggedInUser));
                     updateHostPosts();
                 }
             });
-        }); 
+        });
     }
-    
+
 }
 
 $(document).ready(function () {
@@ -251,19 +249,19 @@ $(document).ready(function () {
     console.log(loggedInObj);
 
     if (loggedInObj[0]) {
-        if(loggedInObj[1] === "user"){
+        if (loggedInObj[1] === "user") {
             console.log("user logged in");
             getUserObj(loggedInObj[2], "user");
             //program now moves to getUserObj, and from getUserObj to updateContent
         }
-        else if(loggedInObj[1] === "host"){
+        else if (loggedInObj[1] === "host") {
             console.log("host logged in");
-            getUserObj(loggedInObj[2], "host"); 
+            getUserObj(loggedInObj[2], "host");
             //program now moves to getUserObj, and from getUserObj to updateHostPosts
         }
-        else{console.log("not user or host");}
+        else { console.log("not user or host"); }
     }
-    else{console.log("not logged in");}
+    else { console.log("not logged in"); }
 
 
 
