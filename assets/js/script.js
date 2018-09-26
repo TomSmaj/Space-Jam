@@ -107,19 +107,25 @@ let postObject = {
 
         <div class="row text-center">
             <div class="googleMaps col-sm-6">
+            <div class="map">
             <iframe
                 width="100%"
-                height="150%"
+                height="150px"
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
-            
+            </div>
+              <img class='artistImage imageOne-${this.postId}' src="" />
+              <img class='artistImage imageTwo-${this.postId}' src='' />
+              <img class='artistImage imageThree-${this.postId}' src='' />
             </div>
 
 
             <div class="bookingInfo col-sm-6">
                     <p>address: ${this.address} </p>
+                    <hr>
                     <p>phone number: ${this.phone} </p>
+                    <hr>
                     <p>price: ${this.price} </p>
                 </div>
 
