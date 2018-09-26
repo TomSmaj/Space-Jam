@@ -108,6 +108,9 @@ body {
 
 .spaceForRent, .postArea{
     background: rgb(184, 134, 11, 0.5 );
+  
+.spaceForRent, .spacePost{
+    opacity:0.50;
     border-radius: 10px;
     margin: 10px;
     border: 1px solid black;
