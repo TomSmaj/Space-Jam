@@ -88,6 +88,7 @@ let postObject = {
     topMusic: [],
     gKey: "AIzaSyAF8WmkI7S-sD3r40t29wi15vs4Czp60Go",
 
+
     getHtml: function () {
         return `<div class="row postArea">
         <div class="row text-center">
@@ -109,7 +110,9 @@ let postObject = {
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
-          
+            <img src = ${getMusicPic(`${this.topMusic[0]}`)} />
+            <img src = ${getMusicPic(`${this.topMusic[1]}`)} />
+            <img src = ${getMusicPic(`${this.topMusic[2]}`)} />
             </div>
             <div class="bookingConfirmation col-sm-6">
                 <button type="button" class="${this.postId} btn btn-block">Book</button>
@@ -120,6 +123,20 @@ let postObject = {
     }
 
 }
+//FIX THIS tomorrow
+function getMusicPic(ArtistName){
+    queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + ArtistName + "&api_key=5e659e2a0405afeb019f7b17483f1df8&format=json";
+    //console.log(ArtistName);
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+          console.log(response.results.artistmatches.artist[0].image[2]['#text']);
+        return response.results.artistmatches.artist[0].image[3]['#text'];
+      })
+    }
+
+
 
 let loggedInUser = {};
 
@@ -211,6 +228,7 @@ function getUserObj(name, type){
 }
 
 $(document).ready(function () {
+
     let loggedInObj;
     loggedInObj = JSON.parse(localStorage.getItem("loggedInObj"));
     console.log(loggedInObj);
