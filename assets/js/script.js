@@ -90,15 +90,15 @@ let postObject = {
 
 
     getHtml: function () {
-        return `<div class="row postArea">
+        return `<div class="row spacePost">
         <div class="row text-center">
             <div class="jamSpace col-sm-6">
                 [space img]
             </div>
            <div class="favBand col-sm-6">
-                <div class="favBand1">BandBandBandBandBandBand</div>
-                <div class="favBand2">BandBandBandBandBandBandBand</div>
-                <div class="favBand3">BandBandBandBandBandBandBand</div>
+            <img class='faveBand1 imageOne-${this.postId}' src="" />
+            <img class='faveBand2 imageTwo-${this.postId}' src='' />
+            <img class='faveBand3 imageThree-${this.postId}' src='' />
         </div>
         </div>
 
@@ -113,9 +113,7 @@ let postObject = {
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
-            <img class='artistImage imageOne-${this.postId}' src="" />
-            <img class='artistImage imageTwo-${this.postId}' src='' />
-            <img class='artistImage imageThree-${this.postId}' src='' />
+            
             </div>
 
 
@@ -169,7 +167,6 @@ function updateContent() {
             postObject.size = tempVal.size;
             postObject.postId = tempVal.postId;
             postObject.topMusic = tempVal.topMusic;
-
             $('.appendTo').append(postObject.getHtml());
 
             updateImage(".imageOne-" + postObject.postId, postObject.topMusic[0])
@@ -264,37 +261,5 @@ $(document).ready(function () {
         else{console.log("not user or host");}
     }
     else{console.log("not logged in");}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
