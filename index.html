@@ -29,98 +29,97 @@
 
     <!-- external CSS styling -->
     <link rel="stylesheet" href="assets/style.css">
+
+    <!--Google Fonts
+    
+        font-family: 'Notable', sans-serif;
+        font-family: 'Anton', sans-serif;
+        font-family: 'Varela Round', sans-serif;
+    
+    -->
+
+    <link href="https://fonts.googleapis.com/css?family=Anton|Notable|Varela+Round" rel="stylesheet">
 </head>
 
 <body>
 
 
 
+    <div class="pageWrap">
+        <!-- bootstrap navigation bar -->
+        <div class="container">
+            <nav class="navbar sticky-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="index.html">Space Jam</a>
+                    </div>
+                    <div id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="html/hostOrRent.html"><span class="glyphicon glyphicon-user"></span><span> Sign Up</span></a></li>
+                            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span><span> Login</span></a></li>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class=" caret"></span>Number
+                                    in band</a>
 
-    <!-- bootstrap navigation bar -->
-    <nav class="navbar sticky-top navbar-light bg-dark">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Space Jam</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="homeTab"><a href="#">Home</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class=" caret"></span>
-                            Number in band</a>
-                        <div class=" dropdown-menu numberInBandDropdown">
-                            <a class="google.com" href="https://www.google.com">Dropdown 1</a>
-                            <a class="google.com" href="https://www.google.com">Dropdown 2</a>
-                            <a class="google.com" href="https://www.google.com">Dropdown 3</a>
-                        </div>
-                </ul>
-                </li>
-
-
-                <!--<ul class="dropdown-menu">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>-->
-                </ul>
-            </div>
-        </div>
-    </nav>
+                                <div class="dropdown-menu numberInBandDropdown">
+                                    <a class="dropDownItem" href="https://www.google.com">Dropdown 1</a>
+                                    <div class="dropdown-divider"></div>
 
 
     <!-- posting space-->
 
-
-    <div class="row">
-        <div class="col-sm-1"></div>
-
-        <div class="spaceForRent col-sm-10">
-            <h2 class="text-center"> Space for Rent</h2>
-            <hr>
-            <h5 class="text-center">Is your band in a jam?</h5>
+                    </div>
+                </div>
+            </nav>
         </div>
-    </div>
+
+        <!-- posting space-->
 
 
+        <div class="row wrapper">
 
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <!--First Display Box-->
+                <div class="row">
+                    <div class="col-sm-1"></div>
 
-    <div class="row appendTo">
-        <!--<div class="col-lg-1"></div>
+                    <div class="spaceForRent col-sm-10">
+                        <h2 class="text-center"> Space for Rent</h2>
+                        <hr>
+                        <h5 class="text-center">Is your band in a jam?</h5>
+                    </div>
+                </div>
+
+                <div class="row appendTo">
+                    <!--<div class="col-lg-1"></div>
         <div class="col-lg-10"> -->
 
+                    <!--Equal to ONE posting-->
+                    <div class="row postArea">
+                        <div class="row text-center">
+                            <div class="jamSpace col-sm-6">
+                                [space img]
+                            </div>
+                            <div class="bookingInfo col-sm-6">
+                                <p> address</p>
+                                <p> phone number</p>
+                                <p> price</p>
+                            </div>
+                        </div>
 
+                        <div class="row text-center">
+                            <div class="googleMaps col-sm-6">
+                                [google map api]
+                            </div>
+                            <div class="bookingConfirmation col-sm-6">
+                                <button type="button" class="btn btn-block">Book</button>
 
-            <!--Equal to ONE posting-->
-            <div class="row postArea">
-                <div class="row text-center">
-                    <div class="jamSpace col-sm-6">
-                        [space img]
+                            </div>
+                        </div>
                     </div>
-                    <div class="bookingInfo col-sm-6">
-                        <p> address</p>
-                        <p> phone number</p>
-                        <p> price</p>
-                    </div>
-                </div>
 
-                <div class="row text-center">
-                    <div class="googleMaps col-sm-6">
-                        [google map api]
-                    </div>
-                    <div class="bookingConfirmation col-sm-6">
-                        <button type="button" class="btn btn-block">Book</button>
-
-                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 
