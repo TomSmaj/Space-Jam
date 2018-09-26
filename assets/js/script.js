@@ -85,7 +85,7 @@ let postObject = {
     availability: 'Every Saturday',
     status: false,
     phone: "",
-    topMusic: "",
+    topMusic: [],
     gKey: "AIzaSyAF8WmkI7S-sD3r40t29wi15vs4Czp60Go",
 
     getHtml: function () {
@@ -113,7 +113,6 @@ let postObject = {
             </div>
             <div class="bookingConfirmation col-sm-6">
                 <button type="button" class="${this.postId} btn btn-block">Book</button>
-
             </div>
         </div>
     </div>`
@@ -145,6 +144,39 @@ function updateContent() {
         });
     });
     console.log("logged in user: " + loggedInUser);
+}
+
+function updateHostPosts(){
+    console.log("host post ids: " + loggedInUser.posts);
+    tempStr = loggedInUser.posts.toString();
+    let arrID = [];
+    console.log(typeof(tempStr));
+    if(tempStr.includes(",")){
+        arrID = tempStr.split(",");
+    }
+    else{
+        arrID.push(tempStr);
+    }
+    //query postID firebase, when there is a match, re-do what's inside of update content
+    postRef.once('value', function (snapshot) {
+        snapshot.forEach(function (child) {
+            let tempVal = child.val();
+            for(let i = 0; i < arrID.length; i++){
+                if(tempVal.postId.toString() === arrID[i]){
+                    console.log("host post match");
+                    postObject.title = tempVal.title;
+                    postObject.info = tempVal.info;
+                    postObject.address = tempVal.address;
+                    postObject.phone = tempVal.phone;
+                    postObject.price = tempVal.price;
+                    postObject.size = tempVal.size;
+                    postObject.postId = tempVal.postId;
+                    postObject.topMusic = tempVal.topMusic;
+                    $('.appendTo').append(postObject.getHtml());
+                }
+            }
+        });
+    });
 }
 
 function getUserObj(name, type){
@@ -198,15 +230,7 @@ $(document).ready(function () {
     }
     else{console.log("not logged in");}
 
-   
 
-    /*
-    $(document).on('click', ".bookBtn", function(event){
-        let targ = event.target;
-        //Target Variable is the button that has been clicked
-        let postId = targ.attr('.postId');
-        //Grab the content from Firebase - find which post has the ID, match with book Button, assign to renter
-    })*/
 
 
 
