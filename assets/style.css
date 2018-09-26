@@ -1,9 +1,92 @@
 * {
     padding: 0;
     margin: 0;
+    letter-spacing: 1px;
+    color: #000;
+    
 }
 
-body{
+.pageWrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+}
+
+.container {
+    width: 100%;
+}
+
+.formRow {
+    text-align: center;
+}
+
+#myNavBar,.container, .dropdown-menu {
+    position: relative;
+}
+
+.navbar-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+a, h2, h5, button, p {
+    font-family: 'Anton', sans-serif;
+    color: #000;
+    
+}
+
+a:hover {
+    color: #b8860b;
+    background-color: #000;
+    border: 2px solid #fff;
+    color: #b8860b;
+    
+}
+
+.dropDownItem:hover {
+    padding: 5px
+}
+
+
+.dropDownItem {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.formContainer {
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+.top-border {
+    border-radius: 10px;
+}
+
+#testForm {
+    border-radius: 10px;
+}
+
+.container-fluid, .formContainer {
+    background-color: #b8860b;
+    opacity: .50;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+    border: 1px solid #000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.numberInBandDropdown, .navbar-brand, .navbar-header .wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body {
     background-image: url(https://www.socialsamosa.com/wp-content/uploads/2014/12/ABsat-3075.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,10 +95,32 @@ body{
 }
 
 .spaceForRent, .postArea{
-    opacity:0.75;
+    opacity:0.50;
     border-radius: 10px;
     margin: 10px;
     border: 1px solid black;
     padding: 20px;
-    background: white;
+    background: #b8860b;
+}
+
+.btn {
+    color: #000;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #b8860b;
+    border: 2px solid #fff;
+}
+
+.submitBtn {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.big {
+    width: 25%;
+    padding: 10px;
+    margin: 10px;
 }

@@ -71,6 +71,7 @@ let testUser = {
 }
 */
 
+=======
 //varaibles from an object from firebase are temporairly transferred to this object
 //the getHtml function us then used to write the HTML containing all the information for a post to the document
 let postObject = {
@@ -86,6 +87,7 @@ let postObject = {
     status: false,
     phone: "",
     gKey: "AIzaSyAF8WmkI7S-sD3r40t29wi15vs4Czp60Go",
+
 
     getHtml: function () {
         return `<div class="row postArea">
@@ -143,6 +145,7 @@ function updateContent() {
 }
 
 $(document).ready(function () {
+
     let loggedInObj;
     loggedInObj = JSON.parse(localStorage.getItem("loggedInObj"));
     console.log(loggedInObj);
@@ -162,16 +165,7 @@ $(document).ready(function () {
         else{console.log("not user or host");}
     }
     else{console.log("not logged in");}
-
-   
-
-    /*
-    $(document).on('click', ".bookBtn", function(event){
-        let targ = event.target;
-        //Target Variable is the button that has been clicked
-        let postId = targ.attr('.postId');
-        //Grab the content from Firebase - find which post has the ID, match with book Button, assign to renter
-    })*/
+  
 
 
 
