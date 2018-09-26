@@ -123,7 +123,7 @@ let postObject = {
     }
 
 }
-//FIX THIS tomorrow
+//Retrives artist pictures from last.fm API
 function getMusicPic(ArtistName){
     queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + ArtistName + "&api_key=5e659e2a0405afeb019f7b17483f1df8&format=json";
     //console.log(ArtistName);
@@ -131,7 +131,7 @@ function getMusicPic(ArtistName){
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-          console.log(response.results.artistmatches.artist[0].image[2]['#text']);
+          //console.log(response.results.artistmatches.artist[0].image[2]['#text']);
         return response.results.artistmatches.artist[0].image[3]['#text'];
       })
     }
