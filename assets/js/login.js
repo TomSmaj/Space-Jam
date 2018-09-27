@@ -39,7 +39,7 @@ $(document).ready(function() {
                     loggedinObj.push(true);
                     loggedinObj.push("user");
                     loggedinObj.push(username);
-                    localStorage.setItem("loggedInObj", JSON.stringify(loggedinObj));
+                    sessionStorage.setItem("loggedInObj", JSON.stringify(loggedinObj));
                     window.location.href = "../index.html";
                 }      
             });
@@ -56,7 +56,7 @@ $(document).ready(function() {
                     loggedinObj.push(true);
                     loggedinObj.push("host");
                     loggedinObj.push(username);
-                    localStorage.setItem("loggedInObj", JSON.stringify(loggedinObj));
+                    sessionStorage.setItem("loggedInObj", JSON.stringify(loggedinObj));
                     window.location.href = "../index.html";
                 }      
             });
