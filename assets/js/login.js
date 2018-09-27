@@ -23,9 +23,10 @@ $(document).ready(function() {
 
     //log in button clicked
     $(".submitBtn").on("click", function(){
+        console.log("clicked");
         //get user/pass from page
-        username = $(".userName").val();
-        password = $(".passWord").val();
+        username = $("#userName").val();
+        password = $("#passWord").val();
         //check if user/pass match anything in user firebase
         userRef.once('value', function (snapshot) {
             //console.log('reached');
@@ -39,7 +40,7 @@ $(document).ready(function() {
                     loggedinObj.push("user");
                     loggedinObj.push(username);
                     localStorage.setItem("loggedInObj", JSON.stringify(loggedinObj));
-                    window.location.href = "index.html";
+                    window.location.href = "../index.html";
                 }      
             });
         });
@@ -56,7 +57,7 @@ $(document).ready(function() {
                     loggedinObj.push("host");
                     loggedinObj.push(username);
                     localStorage.setItem("loggedInObj", JSON.stringify(loggedinObj));
-                    window.location.href = "index.html";
+                    window.location.href = "../index.html";
                 }      
             });
         });

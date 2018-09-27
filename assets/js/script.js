@@ -96,9 +96,9 @@ let postObject = {
                 [space img]
             </div>
            <div class="favBand col-sm-6">
-            <img class='faveBand1 imageOne-${this.postId}' src="" />
-            <img class='faveBand2 imageTwo-${this.postId}' src='' />
-            <img class='faveBand3 imageThree-${this.postId}' src='' />
+            <img class='favBand1 imageOne-${this.postId}' src="" />
+            <img class='favBand2 imageTwo-${this.postId}' src='' />
+            <img class='favBand3 imageThree-${this.postId}' src='' />
         </div>
         </div>
 
@@ -115,9 +115,7 @@ let postObject = {
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
             </div>
-              <img class='artistImage imageOne-${this.postId}' src="" />
-              <img class='artistImage imageTwo-${this.postId}' src='' />
-              <img class='artistImage imageThree-${this.postId}' src='' />
+              
             </div>
 
 
@@ -184,6 +182,17 @@ function updateContent() {
 }
 
 function updateHostPosts(){
+    //first row added to appendTo will be a 'Make Post' button
+    $('.appendTo').append(`
+        <div class = "row postBtnRow">
+            <div class = "col-12">
+                <div class = "spacePost">
+                    <button type="button" class="hostPost btn btn-block">Make Post</button>
+                </div>
+            </div>
+        </div>
+    `);
+
     console.log("host post ids: " + loggedInUser.posts);
     tempStr = loggedInUser.posts.toString();
     let arrID = [];
