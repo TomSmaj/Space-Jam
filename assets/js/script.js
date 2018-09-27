@@ -115,9 +115,7 @@ let postObject = {
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
             </div>
-              <img class='artistImage imageOne-${this.postId}' src="" />
-              <img class='artistImage imageTwo-${this.postId}' src='' />
-              <img class='artistImage imageThree-${this.postId}' src='' />
+              
             </div>
 
 
@@ -189,7 +187,7 @@ function updateHostPosts(){
         <div class = "row postBtnRow">
             <div class = "col-12">
                 <div class = "spacePost">
-                    <button type = "button" class = "postBtn btn btn-light">Submit Post</button>
+                    <button type="button" class="hostPost btn btn-block">Make Post</button>
                 </div>
             </div>
         </div>
