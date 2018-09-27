@@ -163,3 +163,9 @@ a, span, p, h1, h2, h3, h4, h5 {
 .input {
     margin-left: auto;
 }
+
+/*this class is associated with the image of the space itself that appears in each post*/
+.spacePic{
+    width: 400px;
+    height: 300px;
+}
