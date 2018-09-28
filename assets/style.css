@@ -1,16 +1,171 @@
-body{
+* {
+    padding: 0;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #000;
+    
+}
+
+.pageWrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+}
+
+.container {
+    width: 100%;
+}
+
+
+
+.formRow {
+    text-align: center;
+}
+
+#myNavBar,.container, .dropdown-menu {
+    position: relative;
+}
+
+.navbar-right {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.navbar-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+a, h2, h5, button, p {
+    font-family: 'Anton', sans-serif;
+    color: #000;
+    
+}
+
+a:hover {
+    color: #b8860b;
+    background-color: #000;
+    border: 2px solid #fff;
+    color: #b8860b;
+    
+}
+
+.dropDownItem:hover {
+    padding: 5px
+}
+
+
+.dropDownItem {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.formContainer {
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+.top-border {
+    border-radius: 10px;
+}
+
+#testForm {
+    border-radius: 10px;
+}
+
+.container-fluid, .formContainer {
+    background-color: rgb(184, 134, 11, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+    border: 1px solid #000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.formInstructions {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 3px;
+}
+
+.profileOptions, .spaceJam, .navbar-header .wrapper .formInstructions {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body {
     background-image: url(https://www.socialsamosa.com/wp-content/uploads/2014/12/ABsat-3075.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     position: relative;
 }
-
-.postingArea{
-    opacity:0.75;
+  
+.spaceForRent, .spacePost{
+    background: rgb(184, 134, 11, 0.5 );
+    opacity:0.50;
     border-radius: 10px;
     margin: 10px;
     border: 1px solid black;
     padding: 20px;
-    background: white;
+    
+}
+
+.btn {
+    color: #000;
+    margin-top: 10px;
+    margin: 5px;
+    border: 2px solid #fff;
+
+}
+
+.btn:hover {
+    background-color: #b8860b;
+    border: 2px solid #fff;
+}
+
+.submitBtn, .formHolder {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.big {
+    width: 25%;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.map, .artistImage {
+border: 2px solid #fff;
+}
+
+a, span, p, h1, h2, h3, h4, h5 {
+    color: rgb(0, 0, 0, 1);
+}
+
+.artistImage {
+    margin: 5px;
+}
+
+.bookingConfirmation {
+    margin: 10px;
+    padding: 10px;
+    align-content: flex-start;
+}
+
+.input {
+    margin-left: auto;
+}
+
+/*this class is associated with the image of the space itself that appears in each post*/
+.spacePic{
+    width: 400px;
+    height: 300px;
 }
