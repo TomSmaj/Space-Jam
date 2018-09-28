@@ -51,48 +51,51 @@
             <nav class="navbar sticky-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                       <h2><a class="spaceJam" href="index.html">Space Jam</a></h2>
+                        <h2><a class="spaceJam" href="index.html">Space Jam</a></h2>
                     </div>
                     <div id="myNavbar">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="html/hostOrRent.html"><span class="glyphicon glyphicon-user"></span><span> Sign Up</span></a></li>
-                            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span><span> Login</span></a></li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class=" caret"></span>Number
-                                    in band</a>
+                            <li><a href="html/hostOrRent.html"><span> Sign Up</span></a></li>
+                            <li><a href="html/login.html"><span class="glyphicon glyphicon-log-in"></span><span> Login</span></a></li>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
+                                        user</span></a>
 
-                                <div class="dropdown-menu numberInBandDropdown">
-                                    <a class="dropDownItem" href="https://www.google.com">Dropdown 1</a>
+                                <div class="dropdown-menu profileOptions">
+                                    <a class="dropDownItem" href="#">Profile</a>
                                     <div class="dropdown-divider"></div>
-
+                                    <a class="dropDownItem" href="#">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        
+        </nav>
+    </div>
+    
 
     <!-- posting space-->
 
-                    </div>
+    <div class="row wrapper">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <!--First Display Box-->
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="spaceForRent col-sm-10">
+                    <h2 class="text-center"> Space for Rent</h2>
+                    <hr>
+                    <h5 class="text-center">Is your band in a jam?</h5>
                 </div>
-            </nav>
-        </div>
-
-        <!-- posting space-->
+            </div>
 
 
-        <div class="row wrapper">
-
-            <div class="col-lg-1"></div>
-            <div class="col-lg-10">
-                <!--First Display Box-->
+            <div class="col-sm-12">
+                <div class="bookingConfirmation">
+    
                 <div class="row">
-                    <div class="col-sm-1"></div>
-
-                    <div class="spaceForRent col-sm-10">
-                        <h2 class="text-center"> Space for Rent</h2>
-                        <hr>
-                        <h5 class="text-center">Is your band in a jam?</h5>
-                    </div>
-                </div>
-
-                <div class="row appendTo">
                     <!--<div class="col-lg-1"></div>
-        <div class="col-lg-10"> -->
+                    <div class="col-lg-10"> -->
 
                     <!--Equal to ONE posting-->
                     <div class="row spacePost">
@@ -131,18 +134,19 @@
                                 <div class="col-sm-5"></div>
                             </div>
                             <div class="bookingConfirmation col-sm-2">
-                                <button type="button" class="btn btn-block">Book</button>
+                                <button type="button" class="bookBtn btn btn-block">Book</button>
      
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
+
+            <!--==========================Postings will go here================================-->
+            <div class="row appendTo"></div>
         </div>
     </div>
-
-
+    </div>
 </body>
 
 </html>

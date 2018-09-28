@@ -16,6 +16,8 @@
     width: 100%;
 }
 
+
+
 .formRow {
     text-align: center;
 }
@@ -24,10 +26,16 @@
     position: relative;
 }
 
+.navbar-right {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
 .navbar-header {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 a, h2, h5, button, p {
@@ -69,8 +77,7 @@ a:hover {
 }
 
 .container-fluid, .formContainer {
-    background-color: #b8860b;
-    opacity: .50;
+    background-color: rgb(184, 134, 11, 0.5);
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -80,7 +87,12 @@ a:hover {
     border-bottom-right-radius: 10px;
 }
 
-.numberInBandDropdown, .spaceJam, .navbar-header .wrapper {
+.formInstructions {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 3px;
+}
+
+.profileOptions, .spaceJam, .navbar-header .wrapper .formInstructions {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -93,19 +105,23 @@ body {
     background-size: cover;
     position: relative;
 }
-
+  
 .spaceForRent, .spacePost{
+    background: rgb(184, 134, 11, 0.5 );
     opacity:0.50;
     border-radius: 10px;
     margin: 10px;
     border: 1px solid black;
     padding: 20px;
-    background: #b8860b;
+    
 }
 
 .btn {
     color: #000;
     margin-top: 10px;
+    margin: 5px;
+    border: 2px solid #fff;
+
 }
 
 .btn:hover {
@@ -113,7 +129,7 @@ body {
     border: 2px solid #fff;
 }
 
-.submitBtn {
+.submitBtn, .formHolder {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -126,6 +142,30 @@ body {
 }
 
 
-iframe {
+.map, .artistImage {
 border: 2px solid #fff;
+}
+
+a, span, p, h1, h2, h3, h4, h5 {
+    color: rgb(0, 0, 0, 1);
+}
+
+.artistImage {
+    margin: 5px;
+}
+
+.bookingConfirmation {
+    margin: 10px;
+    padding: 10px;
+    align-content: flex-start;
+}
+
+.input {
+    margin-left: auto;
+}
+
+/*this class is associated with the image of the space itself that appears in each post*/
+.spacePic{
+    width: 400px;
+    height: 300px;
 }

@@ -93,7 +93,7 @@ let postObject = {
         return `<div class="row spacePost">
         <div class="row text-center">
             <div class="jamSpace col-sm-6">
-                [space img]
+            <img class='spacePic' src="${this.image}" />
             </div>
            <div class="favBand col-sm-6">
            <img class='favBand1 imageOne-${this.postId}' src="" />
@@ -107,19 +107,23 @@ let postObject = {
 
         <div class="row text-center">
             <div class="googleMaps col-sm-6">
+            <div class="map">
             <iframe
                 width="100%"
-                height="150%"
+                height="150px"
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
-            
+            </div>
+              
             </div>
 
 
             <div class="bookingInfo col-sm-6">
                     <p>address: ${this.address} </p>
+                    <hr>
                     <p>phone number: ${this.phone} </p>
+                    <hr>
                     <p>price: ${this.price} </p>
                 </div>
 
@@ -127,7 +131,7 @@ let postObject = {
             <div class="row">
             <div class="col-sm-5"></div>
             <div class="bookingConfirmation col-sm-2">
-            <button type="button" class="${this.postId} btn btn-block">Book</button>
+            <button type="button" btnPostId = "${this.postId}" class="${this.postId} bookBtn btn btn-block">Book</button>
             </div>
 
             </div>
@@ -138,7 +142,8 @@ let postObject = {
 
 }
 
-function updateImage(selector, artist) {
+//function used
+function updateImage(selector, artist){
     queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + artist + "&api_key=5e659e2a0405afeb019f7b17483f1df8&format=json";
 
     $.get(queryURL).then(response => {
@@ -147,9 +152,9 @@ function updateImage(selector, artist) {
 }
 
 
-
 let loggedInUser = {};
 
+//populates all the postings from firebase to the screen when a user logs in
 function updateContent() {
     //console.log('reached');
     postRef.once('value', function (snapshot) {
@@ -167,34 +172,55 @@ function updateContent() {
             postObject.size = tempVal.size;
             postObject.postId = tempVal.postId;
             postObject.topMusic = tempVal.topMusic;
-
+            postObject.status = tempVal.status;
+            postObject.image = tempVal.image;
             $('.appendTo').append(postObject.getHtml());
 
             updateImage(".imageOne-" + postObject.postId, postObject.topMusic[0])
             updateImage(".imageTwo-" + postObject.postId, postObject.topMusic[1])
             updateImage(".imageThree-" + postObject.postId, postObject.topMusic[2])
+
+            //if a post is already booked (status === true), then the button's text is changed to BOOKED
+            if(postObject.status){
+                $('.' + postObject.postId).text("BOOKED");
+            }
+
         });
     });
     console.log("logged in user: " + loggedInUser);
 }
 
-function updateHostPosts() {
+//when a host logs in, populates the screen with posts that host has made
+function updateHostPosts(){
+    //first row added to appendTo will be a 'Make Post' button
+    $('.appendTo').append(`
+        <div class = "row postBtnRow">
+            <div class = "col-12">
+                <div class = "spacePost">
+                    <button type="button" class="hostPost btn btn-block">Make Post</button>
+                </div>
+            </div>
+        </div>
+    `);
+
+    //the posts a host has made is stored as a comma delineate string
+    //have to read the string from firebase and break it into to array containing the postIDs
     console.log("host post ids: " + loggedInUser.posts);
     tempStr = loggedInUser.posts.toString();
     let arrID = [];
-    console.log(typeof (tempStr));
-    if (tempStr.includes(",")) {
+    if(tempStr.includes(",")){
         arrID = tempStr.split(",");
     }
     else {
         arrID.push(tempStr);
     }
-    //query postID firebase, when there is a match, re-do what's inside of update content
+    //query postID firebase, when there is a match, update the entry from firebase with that postID
     postRef.once('value', function (snapshot) {
         snapshot.forEach(function (child) {
             let tempVal = child.val();
-            for (let i = 0; i < arrID.length; i++) {
-                if (tempVal.postId.toString() === arrID[i]) {
+            //this for loop iterates through the array of IDs abd checks each against the ID of the current girebase entry
+            for(let i = 0; i < arrID.length; i++){
+                if(tempVal.postId.toString() === arrID[i]){
                     console.log("host post match");
                     postObject.title = tempVal.title;
                     postObject.info = tempVal.info;
@@ -204,21 +230,97 @@ function updateHostPosts() {
                     postObject.size = tempVal.size;
                     postObject.postId = tempVal.postId;
                     postObject.topMusic = tempVal.topMusic;
+                    postObject.status = tempVal.status;
+                    postObject.image = tempVal.image;
                     $('.appendTo').append(postObject.getHtml());
+
+                    updateImage(".imageOne-" + postObject.postId, postObject.topMusic[0]);
+                    updateImage(".imageTwo-" + postObject.postId, postObject.topMusic[1]);
+                    updateImage(".imageThree-" + postObject.postId, postObject.topMusic[2]);
+
+                    //if a post is already booked (status === true), then the button's text is changed to BOOKED
+                    if(postObject.status){
+                        $('.' + postObject.postId).text("BOOKED");
+                    }
                 }
             }
         });
     });
 }
 
-function getUserObj(name, type) {
-    if (type === "user") {
-        userRef.once('value', function (snapshot) {
+//functions that moves to hostMaking form when clicked
+$(document).on("click", ".hostPost", function(){
+    console.log("Make Post clicked");
+    window.location.href = "html/hostForm.html";
+});
+
+//functions that books a post when post button is clicked by a user
+$(document).on("click", ".bookBtn", function(event){
+    if(loggedInUser.type === "user"){
+        let clickedId  = $(this).attr("btnPostId");
+        let tempBtn = $(this);
+        console.log("bookBtn clicked");
+        console.log("post associated with clicked button id: " + clickedId);
+
+        //iterate through post firebase and see which entry the clicked button matches
+        postRef.once('value', function (snapshot) {
             snapshot.forEach(function (child) {
                 let tempVal = child.val();
-                console.log("tempVal name:" + tempVal.userName);
-                console.log("name:" + name);
-                if (tempVal.userName === name) {
+                if(!tempVal.status){
+                    if((tempVal.postId).toString() === clickedId){
+                        console.log("booking, Id matches firebase Id");
+                        database.ref('postRef/' + child.key).update({status: true});
+                        database.ref('postRef/' + child.key).update({bookedBy: loggedInUser.userName});
+                        updateUserBookedPosts(clickedId, true);
+                        tempBtn.text("BOOKED");
+                    }
+                }
+                //if post being clicked is currently rented and the bookedByName for the post matches th logged in user 
+                else if(tempVal.status && tempVal.bookedBy === loggedInUser.userName){
+                    //and if postId in the firebase matches the clicked buttons Id
+                    //then the post is unbooked
+                    if((tempVal.postId).toString() === clickedId){
+                        console.log("unbooking, Id matches firebase Id");
+                        database.ref('postRef/' + child.key).update({status: false});
+                        database.ref('postRef/' + child.key).update({bookedBy: ""});
+                        updateUserBookedPosts(clickedId, false);
+                        tempBtn.text("Book");
+                    }
+                }
+            });
+        });
+    }
+});
+
+//when a user books a post, this function is called and the booked posts
+//field within firebase is filled with the id of the post booked
+//if book is true, a post is being added to the spacesBooked field
+//if book is false, a post if being unbooked, and the spacesBook field is cleared
+function updateUserBookedPosts(id, book){
+    userRef.once('value', function (snapshot) {
+        snapshot.forEach(function (child) {
+            let tempVal = child.val();
+            if(tempVal.userName = loggedInUser.userName){
+                if(book){
+                    database.ref('userRef/' + child.key).update({spacesBooked: id});
+                }
+                else{database.ref('userRef/' + child.key).update({spacesBooked: ""});;}
+            }
+        })
+    })
+}
+
+//when user logs in, the respective object (host or user) is grabbed from firebase and stored in
+//local variable loggedInUser
+function getUserObj(name, type){
+    //access uer firebase
+    if(type === "user"){
+       userRef.once('value', function (snapshot) {
+        snapshot.forEach(function (child) {
+            let tempVal = child.val();
+            console.log("tempVal name:" + tempVal.userName);
+            console.log("name:" + name);
+            if(tempVal.userName === name){
                     console.log("user found in firebsae")
                     loggedInUser = tempVal;
                     updateContent();
@@ -226,7 +328,8 @@ function getUserObj(name, type) {
             });
         });
     }
-    else if (type === "host") {
+    //access host firebase
+    else if(type === "host"){
         hostRef.once('value', function (snapshot) {
             snapshot.forEach(function (child) {
                 let tempVal = child.val();
@@ -242,14 +345,19 @@ function getUserObj(name, type) {
 
 }
 
+//funs when document loads
 $(document).ready(function () {
 
+    //grabs loggedInObj from session storage. This tells if someone is logged,
+    //whether they're a user or a host, and then what their usernam is
     let loggedInObj;
-    loggedInObj = JSON.parse(localStorage.getItem("loggedInObj"));
+    loggedInObj = JSON.parse(sessionStorage.getItem("loggedInObj"));
     console.log(loggedInObj);
 
+    //index 0 is a boolean representing whther or not they are logged in
     if (loggedInObj[0]) {
-        if (loggedInObj[1] === "user") {
+        //index 1 contains whether they are a user or a host
+        if(loggedInObj[1] === "user"){
             console.log("user logged in");
             getUserObj(loggedInObj[2], "user");
             //program now moves to getUserObj, and from getUserObj to updateContent
