@@ -251,6 +251,7 @@ function updateHostPosts(){
 //functions that moves to hostMaking form when clicked
 $(document).on("click", ".hostPost", function(){
     console.log("Make Post clicked");
+    window.location.href = "../../hostForm.html";
 });
 
 //functions that books a post when post button is clicked by a user
