@@ -70,32 +70,103 @@
 </div>
 
 <div class="row formHolder postArea">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
         <form action="../html/confirmation.html">
-        <p class="formInstructions">Please fill out the following form:</p>
+        <h2 class="formInstructions text-center">Please fill out the following form:</h2>
         <br>
-        <p>Title: <input class="input" type="text"></p>
+        <div class="row">
+            <div class="col-sm-2">
+                <p align="right"> Title:</p>
+            </div>
+            <div class="col-sm-10">
+                <input id = "titleInput" class="input" type="text">
+            </div>
+        </div>
+
         <hr>
-        <p>Address: <input class="input" type="text"></p>
+        <div class="row">
+            <div class="col-sm-2">
+                <p align="right">Address:</p>
+            </div>
+            <div class="col-sm-10">
+                <input id= "addressInput" class="input" type="text"></p>
+            </div>
+        </div>
         <hr>
-        <p>Description: <input class="input" rows="4"></p>
+        <div class="row">
+            <div class="col-sm-2">
+                <p align="right">Description:</p>
+            </div>
+            <div class="col-sm-10">
+                <input id= "descriptionInput" class="input" rows="4">
+            </div>
+        </div>
         <hr>
-        <p>Phone Number: <input class="input" type="text"></p>
+        <div class="row">
+            <div class="col-sm-2">
+                <p align="right">Phone Number:</p>
+            </div>
+            <div class="col-sm-10">
+                <input id = "phoneNumberInput" class="input" type="text">
+            </div>
+        </div>
         <hr>
-        <p>Price: <input class="input" type="text"></p>
+        <div class="row">
+            <div class="col-sm-2">
+                <p align="right">Price:</p>
+            </div>
+            <div class="col-sm-10">
+                <input id= "priceInput" class="input" type="text">
+            </div>
+        </div>
         <hr>
-        <p>Size: <input class="input" type="text"></p>
+        <div class="row">
+            <div class="col-sm-2">
+                <p align="right">Size:</p>
+            </div>
+            <div class="col-sm-10">
+                <input id= "sizeInput" class="input" type="text">
+            </div>
+        </div>
         <hr>
-        <p>Top 3 Musicians: <input class="input" type="text"></p>
+        <div class="row">
+            <div class="col-sm-2">
+                <p align="right">Top 3 Musicians:</p>
+            </div>
+            <div class="col-sm-10">
+                <ul>
+                    <li><input id= "topMusicianInput1" class="input" type="text"><li>
+                        <br>
+                    <li><input id= "topMusicianInput2" class="input" type="text"><li>
+                        <br>
+                    <li><input id= "topMusicianInput3" class="input" type="text"><li>
+                </ul>
+            </div>
+        </div>
         <hr>
-        <p>Availability: <input class="input" type="text"></p>
+        <div class="row">
+            <div class="col-sm-2">
+                <p align="right">Availability:</p>
+            </div>
+            <div class="col-sm-10">
+                <input id= "availablityInput" class="input" type="text">
+            </div>
+        </div>
         <hr>
-        <p>Select an Image:</p> 
-        <br>
-        <input name="Image" class="input" type="file">
-        <hr>
-        <input class="btn text-center"  type="submit">
+        <div class="row">
+            <div class="col-sm-2">
+                <p align="right"> Upload an Image:</p>
+            </div>
+            <br>
+            <input name="Image" id= "imageUploadInput" class="input" type="file">
+
+            <hr>
+            <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-2">
+
+<input id= "hostSubmitBtn" class="btn text-center" type="submit">
         </form>
         
     </div>
