@@ -54,7 +54,7 @@
                             <li><a href="html/renterForm.html"><span> Sign Up</span></a></li>
                             <li><a href="../html/login.html"><span class="glyphicon glyphicon-log-in"></span><span>
                                         Login</span></a></li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
+                            <li><a href="#" class="displayUserName dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
                                         user</span></a>
 
                                 <div class="dropdown-menu profileOptions">
@@ -69,47 +69,6 @@
 
             </nav>
         </div>
-        <div class="formContainer">
-            <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10">
-                    <h2 class="formInstructions text-center">Please fill out the following form:</h2>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">
-                    <span class="center"> Quick Title:</span><input id="titleInput" class="input" type="text">
-                </div>
-                
-            </div>
-
-
-
-            <hr>
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">
-                    <span class="center">Address:</span><input id="addressInput" class="input" type="text">
-                </div>
-              
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">
-                    <span class="center">Description:</span><textarea id="descriptionInput" class="input" rows="4" cols="25"></textarea>
-                </div>
-        
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">
-                    <span class="center">Phone Number:</span><input id="phoneNumberInput" class="input" type="text">
-=======
-    </div>
 
     <div class="row formHolder postArea formContainer">
         <div class="col-sm-1"></div>
@@ -156,19 +115,10 @@
             <hr>
             <div class="row">
                 <div class="col-sm-4">
-                    <p align="right">Price:</p>
-                </div>
-                <div class="col-sm-4">
-                    <input id="priceInput" class="input" type="text" required="Required" placeholder="$">
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-4">
                     <p align="right">Amount of People:</p>
                 </div>
                 <div class="col-sm-4">
-                    <select name="size">
+                    <select id = "size" name="size">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -182,28 +132,14 @@
             <hr>
             <div class="row">
 
-                <div class="col-sm-2"></div>
+                <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <span class="center">Amount:</span><input id="priceInput" class="input" type="text">
                 </div>
             </div>
             <hr>
             <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">
-                    <span class="center">Amount of People:</span> <select name="size">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-2"></div>
+                <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <span class="center">Top 3 Musicians:</span>
                     
@@ -221,16 +157,16 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-sm-2"></div>
+                <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-                    <span class="center">Availability:</span><input id="availablityInput" class="input" type="text">
+                    <span class="center">Availability:</span><input id="availabilityInput" class="input" type="text">
                 </div>
             </div>
             <hr>
             <div class="row">
-                <div class="col-sm-2"></div>
+                <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-                    <span class="center"> Upload an Image:</span><input name="Image" id="imageUploadInput" class="input" type="file">
+                    <span class="center"> Upload an Image:</span><input name="Image" id="imageUploadInput" class="input" type="text">
                 </div>
                 <br>
             </div>
