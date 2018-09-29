@@ -17,7 +17,10 @@ let userRef = database.ref('userRef');
 //This was used to initialize FireBase Data
 
 $(document).ready(function () {
-
+    let loggedInObj;
+    loggedInObj = JSON.parse(sessionStorage.getItem("loggedInObj"));
+    console.log(loggedInObj);
+    $(".displayUserName").text(loggedInObj[2]);
 
     //When Button is clicked, make new post
     $(".signUpSubmitButton").on("click", function () {

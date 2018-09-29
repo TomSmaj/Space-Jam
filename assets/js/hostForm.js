@@ -22,6 +22,7 @@ $(document).ready(function () {
     let loggedInObj;
     loggedInObj = JSON.parse(sessionStorage.getItem("loggedInObj"));
     console.log(loggedInObj);
+    $(".displayUserName").text(loggedInObj[2]);
 
     //When Button is clicked, make new post
     if (loggedInObj[1] === "host"){
@@ -87,7 +88,7 @@ $(document).ready(function () {
         
         setTimeout(function(){
             window.location.href = "../index.html";
-            }, 1500);
+            }, 1500); 
          
     //update postId and setting to postID ref 
 
