@@ -6,6 +6,10 @@
     
 }
 
+ul {
+    list-style: none;
+}
+
 .pageWrap {
     margin-left: auto;
     margin-right: auto;
@@ -15,7 +19,6 @@
 .container {
     width: 100%;
 }
-
 
 
 .formRow {
@@ -38,7 +41,7 @@
     padding-bottom: 10px;
 }
 
-a, h2, h5, button, p {
+a, h2, h3, h4, h5, button, p {
     font-family: 'Anton', sans-serif;
     color: #000;
     
@@ -98,6 +101,10 @@ a:hover {
     text-align: center;
 }
 
+.spaceJam {
+    font-family: 'Notable', sans-serif;
+}
+
 body {
     background-image: url(https://www.socialsamosa.com/wp-content/uploads/2014/12/ABsat-3075.jpg);
     background-repeat: no-repeat;
@@ -108,7 +115,7 @@ body {
   
 .spaceForRent, .spacePost{
     background: rgb(184, 134, 11, 0.5 );
-    opacity:0.50;
+    
     border-radius: 10px;
     margin: 10px;
     border: 1px solid black;
@@ -142,12 +149,17 @@ body {
 }
 
 
-.map, .artistImage {
+.artistImage {
 border: 2px solid #fff;
 }
 
 a, span, p, h1, h2, h3, h4, h5 {
     color: rgb(0, 0, 0, 1);
+}
+
+h5, h4, h3 {
+    text-align: center;
+    line-height: 1.5;
 }
 
 .artistImage {
@@ -166,6 +178,12 @@ a, span, p, h1, h2, h3, h4, h5 {
 
 /*this class is associated with the image of the space itself that appears in each post*/
 .spacePic{
-    width: 400px;
-    height: 300px;
+    width: 90%;
+    height: 90%;
+    border: 5px outset #000;
+}
+
+.favBand1, .favBand2, .favBand3 {
+    margin: 5px;
+    border: 2px solid #000;
 }

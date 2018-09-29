@@ -69,29 +69,79 @@
 </div>
 </div>
 
-<div class="row formHolder postArea">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
-        
-        <p class="formInstructions">Please fill out the following form:</p>
+<div class="row formHolder postArea formContainer">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <h2 class="formInstructions text-center">Please fill out the following form:</h2>
         <br>
-        <p>Title: <input id="titleInput" type="text"></p>
-        <hr>
-        <p>Address: <input id="addressInput" type="text"></p>
-        <hr>
-        <p>Description: <input id="descriptionInput" rows="4"></p>
-        <hr>
-        <p>Phone Number: <input id="phoneNumberInput" type="text"></p>
-        <hr>
-        <p>Price: <input id="priceInput" type="text"></p>
-        <hr>
-        <p>Size: <input id="sizeInput" type="text"></p>
+        <div class="row">
+            <div class="col-sm-4">
+                <p align="right"> Title:</p>
+            </div>
+            <div class="col-sm-4">
+                <input id = "titleInput" class="input" type="text">
+            </div>
+        </div>
+
         <hr>
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-4">
+                <p align="right">Address:</p>
+            </div>
+            <div class="col-sm-4">
+                <input id= "addressInput" class="input" type="text">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <p align="right">Description:</p>
+            </div>
+            <div class="col-sm-4">
+                <!--IF javascript doesn't work with textarea on DESCRIPTION, probably because of textarea(switch back to input)-->
+                <textarea id="descriptionInput" class="input" rows="4" cols="25"></textarea>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <p align="right">Phone Number:</p>
+            </div>
+            <div class="col-sm-4">
+                <input id = "phoneNumberInput" class="input" type="text">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <p align="right">Price:</p>
+            </div>
+            <div class="col-sm-4">
+                <input id= "priceInput" class="input" type="text">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <p align="right">Amount of People:</p>
+            </div>
+            <div class="col-sm-4">
+                <select name="size">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>                    
+                  </select>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
                 <p align="right">Top 3 Musicians:</p>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <ul>
                     <li><input id= "topMusicianInput1" class="input" type="text"><li>
                         <br>
@@ -102,14 +152,29 @@
             </div>
         </div>
         <hr>
-        <p>Availability: <input id="availabilityInput" type="text"></p>
+        <div class="row">
+            <div class="col-sm-4">
+                <p align="right">Availability:</p>
+            </div>
+            <div class="col-sm-8">
+                <input id= "availablityInput" class="input" type="text">
+            </div>
+        </div>
         <hr>
-        <p>Select an Image:</p> 
-        <br>
-        <input name="Image"  id\="imageUploadInput" type="file">
-        <hr>
-        <button class="submitButton btn text-center"  type="button">
+        <div class="row">
+            <div class="col-sm-4">
+                <p align="right"> Upload an Image:</p>
+            </div>
+            <br>
+            <input name="Image" id= "imageUploadInput" class="input" type="file">
 
+            <hr>
+            <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-2">
+
+<input id= "hostSubmitBtn" class="submitButton btn text-center" type="submit">
+        
         
     </div>
 </div>

@@ -40,44 +40,72 @@
 
     <link href="https://fonts.googleapis.com/css?family=Anton|Notable|Varela+Round" rel="stylesheet">
 </head>
-<body>
-<div class="pageWrap">       
-     <div class="container">
-        <nav class="navbar sticky-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <h2><a class="spaceJam" href="../index.html">Space Jam</a></h2>
-                </div>
-                <div id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="../html/hostOrRent.html"><span> Sign Up</span></a></li>
-                        <li><a href="../html/login.html"><span class="glyphicon glyphicon-log-in"></span><span> Login</span></a></li>
-                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
-                                    user</span></a>
 
-                            <div class="dropdown-menu profileOptions">
-                                <a class="dropDownItem" href="#">Profile</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropDownItem" href="#">Logout</a>
-                            </div>
-                        </li>
-                    </ul>
+<body>
+    <div class="pageWrap">
+        <div class="container">
+            <nav class="navbar sticky-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h2><a class="spaceJam" href="../index.html">Space Jam</a></h2>
+                    </div>
+                    <div id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../html/hostOrRent.html"><span> Sign Up</span></a></li>
+                            <li><a href="../html/login.html"><span class="glyphicon glyphicon-log-in"></span><span>
+                                        Login</span></a></li>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
+                                        user</span></a>
+
+                                <div class="dropdown-menu profileOptions">
+                                    <a class="dropDownItem" href="#">Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropDownItem" href="#">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-    
-    </nav>
-</div>
-</div>
+
+            </nav>
+        </div>
+    </div>
     <div class="pageWrap">
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
-            <div class="postArea formRow">
-            <form action="renterFind.html">
-                <p>User Name: <input type="text"></p>
-                <p>Email: <input type="text"></p>
-                <p>Password: <input type="password"></p>
-                <input type="submit" class="btn btn-lg">
-            </form>
+            <div class="spacePost formRow">
+                <form action="renterFind.html">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p align="right">User Name: </p>
+                        </div>
+                        <div class="col-sm-8" align="left">
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p align="right">Email: </p>
+                        </div>
+                        <div class="col-sm-8" align="left">
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p align="right">Password: </p>
+                        </div>
+                        <div class="col-sm-8" align="left">
+                            <input type="password">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <input type="submit" class="btn btn-lg">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -85,4 +113,5 @@
 
 
 </body>
+
 </html>
