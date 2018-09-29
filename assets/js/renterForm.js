@@ -39,7 +39,7 @@ $(document).ready(function () {
             
 
             setTimeout(function(){
-                //window.location.href = "confirmation.html";
+                window.location.href = "login.html";
                 }, 1500);
 
     }   else if (userChecked) {
@@ -54,7 +54,7 @@ $(document).ready(function () {
             
 
             setTimeout(function(){
-               // window.location.href = "confirmation.html";
+                window.location.href = "login.html";
                 }, 1500);
             
         }
