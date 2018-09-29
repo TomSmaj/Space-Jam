@@ -387,8 +387,10 @@ $(document).ready(function () {
     let loggedInObj;
     loggedInObj = JSON.parse(sessionStorage.getItem("loggedInObj"));
     console.log(loggedInObj);
-    $(".displayUserName").text(loggedInObj[2]);
+    if(loggedInObj){
+        $(".displayUserName").text(loggedInObj[2]);
     
+
     //index 0 is a boolean representing whther or not they are logged in
     if (loggedInObj[0]) {
         //index 1 contains whether they are a user or a host
@@ -405,37 +407,5 @@ $(document).ready(function () {
         else { console.log("not user or host"); }
     }
     else { console.log("not logged in"); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 })

@@ -23,8 +23,10 @@ $(document).ready(function() {
     let loggedInObj;
     loggedInObj = JSON.parse(sessionStorage.getItem("loggedInObj"));
     console.log(loggedInObj);
-    $(".displayUserName").text(loggedInObj[2]);
-    
+    if(loggedInObj){
+        $(".displayUserName").text(loggedInObj[2]);
+    }
+
     //log in button clicked
     $(".submitBtn").on("click", function(){
         console.log("clicked");
