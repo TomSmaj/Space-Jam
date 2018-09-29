@@ -85,10 +85,10 @@ $(document).ready(function () {
         
         //push object into postRef firebase
         
-        /*setTimeout(function(){
+        setTimeout(function(){
             window.location.href = "../index.html";
             }, 1500);
-        }) */
+         
     //update postId and setting to postID ref 
 
     })
