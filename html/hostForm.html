@@ -42,31 +42,73 @@
 </head>
 
 <body>
-<div class="pageWrap">       
-     <div class="container">
-        <nav class="navbar sticky-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <h2><a class="spaceJam" href="../index.html">Space Jam</a></h2>
-                </div>
-                <div id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="html/renterForm.html"><span> Sign Up</span></a></li>
-                        <li><a href="../html/login.html"><span class="glyphicon glyphicon-log-in"></span><span> Login</span></a></li>
-                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
-                                    user</span></a>
+    <div class="pageWrap">
+        <div class="container">
+            <nav class="navbar sticky-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h2><a class="spaceJam" href="../index.html">Space Jam</a></h2>
+                    </div>
+                    <div id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="html/renterForm.html"><span> Sign Up</span></a></li>
+                            <li><a href="../html/login.html"><span class="glyphicon glyphicon-log-in"></span><span>
+                                        Login</span></a></li>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
+                                        user</span></a>
 
-                            <div class="dropdown-menu profileOptions">
-                                <a class="dropDownItem" href="#">Profile</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropDownItem" href="#">Logout</a>
-                            </div>
-                        </li>
-                    </ul>
+                                <div class="dropdown-menu profileOptions">
+                                    <a class="dropDownItem" href="#">Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropDownItem" href="#">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
             </nav>
         </div>
+        <div class="formContainer">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <h2 class="formInstructions text-center">Please fill out the following form:</h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center"> Quick Title:</span><input id="titleInput" class="input" type="text">
+                </div>
+                
+            </div>
+
+
+
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Address:</span><input id="addressInput" class="input" type="text">
+                </div>
+              
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Description:</span><textarea id="descriptionInput" class="input" rows="4" cols="25"></textarea>
+                </div>
+        
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Phone Number:</span><input id="phoneNumberInput" class="input" type="text">
+=======
     </div>
 
     <div class="row formHolder postArea formContainer">
@@ -134,14 +176,37 @@
                         <option value="5">5</option>
                         <option value="6">6</option>
                     </select>
+
                 </div>
             </div>
             <hr>
             <div class="row">
+
+                <div class="col-sm-2"></div>
                 <div class="col-sm-4">
-                    <p align="right">Top 3 Musicians:</p>
+                    <span class="center">Amount:</span><input id="priceInput" class="input" type="text">
                 </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
                 <div class="col-sm-4">
+                    <span class="center">Amount of People:</span> <select name="size">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Top 3 Musicians:</span>
+                    
                     <ul>
                         <li><input id="topMusicianInput1" class="input" type="text">
                         <li>
@@ -156,44 +221,32 @@
             </div>
             <hr>
             <div class="row">
+                <div class="col-sm-2"></div>
                 <div class="col-sm-4">
-                    <p align="right">Availability:</p>
+                    <span class="center">Availability:</span><input id="availablityInput" class="input" type="text">
                 </div>
-                <div class="col-sm-4">
-                    <fieldset>
-                        <div>
-                            <input type="date" id="startDate" name="spaceJamDates" value="2018-09-29" min="2018-01-01"
-                                max="2022-12-31" />
-                        </div>
-                        <br>
-                        <p class="text-center"> at</p>
-                        <div class="sessionTime">
-                            <input type="time" id="jamSessionTime" min="8:00" max="23:00" required />
-                            <span class="hours"></span>
-                        </div>
-                </div>
-                </fieldset>
             </div>
             <hr>
             <div class="row">
+                <div class="col-sm-2"></div>
                 <div class="col-sm-4">
-                    <p align="right"> Upload an Image:</p>
+                    <span class="center"> Upload an Image:</span><input name="Image" id="imageUploadInput" class="input" type="file">
                 </div>
                 <br>
-                <div class="col-sm-4">
-                    <input name="Image" id="imageUploadInput" class="input" type="file">
-                </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-sm-5"></div>
                 <div class="col-sm-2">
-
                     <input id="hostSubmitBtn" class="submitButton btn text-center" type="submit">
+                    <br><br><br>
 
 
                 </div>
             </div>
+        </div>
+    </div>
+
 
 </body>
 
