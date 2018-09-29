@@ -97,7 +97,9 @@ let postObject = {
             </div>
            <div class="favBand col-sm-6">
             <img class='favBand1 imageOne-${this.postId}' src="" />
+        
             <img class='favBand2 imageTwo-${this.postId}' src='' />
+            
             <img class='favBand3 imageThree-${this.postId}' src='' />
         </div>
         </div>
@@ -110,8 +112,8 @@ let postObject = {
             <div class="map">
             <iframe
                 width="100%"
-                height="150px"
-                frameborder="0" style="border:0"
+                height="100%"
+                frameborder="0" style="border: 5px outset #000"
                 src="https://www.google.com/maps/embed/v1/place?key=${this.gKey}&q=${this.address}" allowfullscreen>
             </iframe>
             </div>
