@@ -25,7 +25,7 @@
     <!--FireBase scrip tag-->
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
     <!--JavaScript scrip tag-->
-    <script src="assets/js/script.js"></script>
+    <script src="../assets/js/renterForm.js"></script>
 
     <!-- external CSS styling -->
     <link rel="stylesheet" href="../assets/style.css">
@@ -74,14 +74,14 @@
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
             <div class="spacePost formRow">
-                <form action="renterFind.html">
+                
                     <div class="row">
                         <div class="col-sm-4">
                             <p align="right">Hosting or Renting?</p>
                         </div>
                         <div class="col-sm-8" align="left">
-                            <input type="radio" name="type" value="Host">Host<br>
-                            <input type="radio" name="type" value="Rent">Rent<br>
+                            <input class="hostRadio" type="radio" name="type" value="Host">Host<br>
+                            <input class="rentRadio" type="radio" name="type" value="Rent">Rent<br>
                         </div>
                     </div>
                     <div class="row">
@@ -89,16 +89,7 @@
                             <p align="right">User Name: </p>
                         </div>
                         <div class="col-sm-8" align="left">
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <p align="right">Email: </p>
-                        </div>
-                        <div class="col-sm-8" align="left">
-                            <input type="text">
+                            <input class="rentUserName" type="text">
                         </div>
                     </div>
 
@@ -107,14 +98,14 @@
                             <p align="right">Password: </p>
                         </div>
                         <div class="col-sm-8" align="left">
-                            <input type="password">
+                            <input class="rentPass" type="password">
                         </div>
                     </div>
 
                     <div class="row">
-                        <input type="submit" class="btn btn-lg">
+                        <button class = "signUpSubmitButton" type="button" class="btn btn-lg">Submit</button>
                     </div>
-                </form>
+                
             </div>
         </div>
     </div>
