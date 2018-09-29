@@ -96,11 +96,13 @@ let postObject = {
             <img class='spacePic' src="${this.image}" />
             </div>
            <div class="favBand col-sm-6">
+
             <img class='favBand1 imageOne-${this.postId}' src="" />
         
             <img class='favBand2 imageTwo-${this.postId}' src='' />
             
             <img class='favBand3 imageThree-${this.postId}' src='' />
+
         </div>
         </div>
 
@@ -213,7 +215,7 @@ function updateHostPosts(){
     if(tempStr.includes(",")){
         arrID = tempStr.split(",");
     }
-    else{
+    else {
         arrID.push(tempStr);
     }
     //query postID firebase, when there is a match, update the entry from firebase with that postID
@@ -253,6 +255,7 @@ function updateHostPosts(){
 //functions that moves to hostMaking form when clicked
 $(document).on("click", ".hostPost", function(){
     console.log("Make Post clicked");
+    window.location.href = "html/hostForm.html";
 });
 
 //functions that books a post when post button is clicked by a user
@@ -327,23 +330,23 @@ function getUserObj(name, type){
                     updateContent();
                 }
             });
-        }); 
+        });
     }
     //access host firebase
     else if(type === "host"){
         hostRef.once('value', function (snapshot) {
-         snapshot.forEach(function (child) {
-            let tempVal = child.val();
-            if(tempVal.userName === name){
+            snapshot.forEach(function (child) {
+                let tempVal = child.val();
+                if (tempVal.userName === name) {
                     console.log("host found in firebsae")
                     loggedInUser = tempVal;
                     console.log("host object: " + JSON.stringify(loggedInUser));
                     updateHostPosts();
                 }
             });
-        }); 
+        });
     }
-    
+
 }
 
 //funs when document loads
@@ -363,13 +366,45 @@ $(document).ready(function () {
             getUserObj(loggedInObj[2], "user");
             //program now moves to getUserObj, and from getUserObj to updateContent
         }
-        else if(loggedInObj[1] === "host"){
+        else if (loggedInObj[1] === "host") {
             console.log("host logged in");
-            getUserObj(loggedInObj[2], "host"); 
+            getUserObj(loggedInObj[2], "host");
             //program now moves to getUserObj, and from getUserObj to updateHostPosts
         }
-        else{console.log("not user or host");}
+        else { console.log("not user or host"); }
     }
-    else{console.log("not logged in");}
+    else { console.log("not logged in"); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })
