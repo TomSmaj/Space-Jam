@@ -13,6 +13,7 @@ firebase.initializeApp(config);
 let database = firebase.database();
 let userIdRef = database.ref('userIdRef');
 let postRef = database.ref('postRef');
+let hostRef = database.ref('hostRef');
 
 //This was used to initialize FireBase Data
 
@@ -44,7 +45,7 @@ $(document).ready(function () {
             info: $("#descriptionInput").val(),
             phone: $("#phoneNumberInput").val(),
             price: $("#priceInput").val(),
-            size: $("#sizeInput").val(),
+            size: $("#size option:selected").val(),
             topMusic: tempArray,
             availability: $("#availabilityInput").val(),
             status: false,
@@ -54,6 +55,29 @@ $(document).ready(function () {
             }
 
             postRef.push(hostForm);
+
+            hostRef.once('value', function (snapshot) {
+                
+                snapshot.forEach(function (child) {
+                    console.log("child user name: ")
+                    if(child.val().userName === loggedInObj[2]){
+                        console.log("inside of comparison");
+                        console.log("found host that matches logged in");
+                        tempIdStr = child.val().posts;
+                        
+                        if(tempIdStr === ""){
+                            console.log("tempIdStr is blank");
+                            database.ref('hostRef/' + child.key).update({posts: newPostId});
+                        }
+                        else{
+                            console.log("else");
+                            tempIdStr += ","+ newPostId.toString();
+                            database.ref('hostRef/' + child.key).update({posts: tempIdStr});
+                        }
+                    }
+                });
+            });
+
         })
         //Take data from input fields, store in object
 
@@ -62,17 +86,16 @@ $(document).ready(function () {
         //push object into postRef firebase
         
         setTimeout(function(){
-            window.location.href = "confirmation.html";
+            window.location.href = "../index.html";
             }, 1500);
-        })
+         
     //update postId and setting to postID ref 
-    
-    
-}
+
+    })
+
+    }
 
 })
-
-
 
 
 

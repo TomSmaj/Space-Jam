@@ -187,7 +187,7 @@ function updateContent() {
 
         });
     });
-    console.log("logged in user: " + loggedInUser);
+    console.log("logged in user: " + JSON.stringify(loggedInUser));
 }
 
 //when a host logs in, populates the screen with posts that host has made
@@ -217,6 +217,8 @@ function updateHostPosts(){
     //query postID firebase, when there is a match, update the entry from firebase with that postID
     postRef.once('value', function (snapshot) {
         snapshot.forEach(function (child) {
+            console.log("making a post...");
+            console.log("arrID: " + arrID);
             let tempVal = child.val();
             //this for loop iterates through the array of IDs abd checks each against the ID of the current girebase entry
             for(let i = 0; i < arrID.length; i++){
@@ -257,6 +259,7 @@ $(document).on("click", ".hostPost", function(){
 //functions that books a post when post button is clicked by a user
 $(document).on("click", ".bookBtn", function(event){
     if(loggedInUser.type === "user"){
+        let makeChange = false;
         let clickedId  = $(this).attr("btnPostId");
         let tempBtn = $(this);
         console.log("bookBtn clicked");
@@ -266,14 +269,18 @@ $(document).on("click", ".bookBtn", function(event){
         postRef.once('value', function (snapshot) {
             snapshot.forEach(function (child) {
                 let tempVal = child.val();
-                if(!tempVal.status){
+                //checking if the post isn't booked and if the loggedInUser hasn't already booked another post
+                if(!tempVal.status && loggedInUser.spacesBooked === ""){
                     if((tempVal.postId).toString() === clickedId){
                         console.log("booking, Id matches firebase Id");
                         database.ref('postRef/' + child.key).update({status: true});
                         database.ref('postRef/' + child.key).update({bookedBy: loggedInUser.userName});
-                        updateUserBookedPosts(clickedId, true);
+                        //updateUserBookedPosts(clickedId, true);
+                        loggedInUser.spacesBooked = clickedId;
+                        //update spaces booked in user firebase
                         tempBtn.text("BOOKED");
-                    }
+                        makeChange = true;
+                    }                   
                 }
                 //if post being clicked is currently rented and the bookedByName for the post matches th logged in user 
                 else if(tempVal.status && tempVal.bookedBy === loggedInUser.userName){
@@ -283,12 +290,34 @@ $(document).on("click", ".bookBtn", function(event){
                         console.log("unbooking, Id matches firebase Id");
                         database.ref('postRef/' + child.key).update({status: false});
                         database.ref('postRef/' + child.key).update({bookedBy: ""});
-                        updateUserBookedPosts(clickedId, false);
+                        //updateUserBookedPosts(clickedId, false);
+                        loggedInUser.spacesBooked = "";
+                        //update spaces booked in user firebase
                         tempBtn.text("Book");
+                        makeChange = true;
                     }
                 }
             });
         });
+        setTimeout(function(){
+            console.log("makeChange: " + makeChange);
+        if(makeChange){
+        userRef.once('value', function (snapshot) {
+            snapshot.forEach(function (child) {
+                if(child.val().userName === loggedInUser.userName) {
+                    console.log("loggedInUser spacesBooked: " + loggedInUser.spacesBooked);
+                    if(loggedInUser.spacesBooked === ""){
+                        database.ref('userRef/' + child.key).update({spacesBooked: ""});    
+                    }
+                    else{
+                        database.ref('userRef/' + child.key).update({spacesBooked: loggedInUser.spacesBooked});   
+                    }
+                }
+            });
+        });
+        }
+        }, 1000);
+        
     }
 });
 
@@ -296,6 +325,7 @@ $(document).on("click", ".bookBtn", function(event){
 //field within firebase is filled with the id of the post booked
 //if book is true, a post is being added to the spacesBooked field
 //if book is false, a post if being unbooked, and the spacesBook field is cleared
+/*
 function updateUserBookedPosts(id, book){
     userRef.once('value', function (snapshot) {
         snapshot.forEach(function (child) {
@@ -309,6 +339,10 @@ function updateUserBookedPosts(id, book){
         })
     })
 }
+*/
+
+//after a user books a space, the space assigned to them must be updated in firebase
+
 
 //when user logs in, the respective object (host or user) is grabbed from firebase and stored in
 //local variable loggedInUser
