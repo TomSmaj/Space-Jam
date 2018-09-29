@@ -25,7 +25,7 @@
     <!--FireBase scrip tag-->
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
     <!--JavaScript scrip tag-->
-    <script src="../assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 
     <!-- external CSS styling -->
     <link rel="stylesheet" href="../assets/style.css">
@@ -68,14 +68,22 @@
     </nav>
 </div>
 </div>
-
-
-<div class="pageWrap">
-    <div class="col-sm-3"></div>
-    <div class="postArea wrapper col-sm-6">
-        <p>Thank you for choosing Space JAM! You will be notified when someone needs your space!</p>
+    <div class="pageWrap">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div class="postArea formRow">
+            <form action="#">
+                <p>Zip/City: <input type="text"></p>
+                <p>How many people are with you? <input type="number"></p>
+                <p>Genre: <input type="text"></p>
+                <p>How long are you looking to JAM?: <input type="text"></p>
+                <input type="submit" class="btn btn-lg">
+            </form>
+            </div>
+        </div>
     </div>
-</div>
+
+
 
 </body>
 </html>
