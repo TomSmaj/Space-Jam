@@ -1,76 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--JQuery link-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <!-- Bootstrap CSS -->
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-
-
-
-    <!--FireBase scrip tag-->
-    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-    <!--JavaScript scrip tag-->
-    <script src="assets/js/script.js"></script>
-
-    <!-- external CSS styling -->
-    <link rel="stylesheet" href="../assets/style.css">
-
-    <!--Google Fonts
-    
-        font-family: 'Notable', sans-serif;
-        font-family: 'Anton', sans-serif;
-        font-family: 'Varela Round', sans-serif;
-    
-    -->
-
-    <link href="https://fonts.googleapis.com/css?family=Anton|Notable|Varela+Round" rel="stylesheet">
-</head>
-
-<body>
-    <div class="pageWrap">
-        <div class="container">
-            <nav class="navbar sticky-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <h2><a class="spaceJam" href="../index.html">Space Jam</a></h2>
-                    </div>
-                    <div id="myNavbar">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="../html/hostOrRent.html"><span> Sign Up</span></a></li>
-                            <li><a href="../html/login.html"><span class="glyphicon glyphicon-log-in"></span><span>
-                                        Login</span></a></li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
-                                        user</span></a>
-
-                                <div class="dropdown-menu profileOptions">
-                                    <a class="dropDownItem" href="#">Profile</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropDownItem" href="#">Logout</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </nav>
-        </div>
-    </div>
-    <div class="pageWrap">
+<div class="pageWrap">
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
             <div class="spacePost formRow">
@@ -80,7 +8,7 @@
                             <p align="right">User Name: </p>
                         </div>
                         <div class="col-sm-8" align="left">
-                            <input type="text">
+                            <input type="text" required="Required" style="width: 220px" placeholder="CodeNameDuchess">
                         </div>
                     </div>
 
@@ -89,7 +17,7 @@
                             <p align="right">Email: </p>
                         </div>
                         <div class="col-sm-8" align="left">
-                            <input type="text">
+                            <input type="text" required="Required" style="width: 220px" placeholder="rocker@spacejam.com">
                         </div>
                     </div>
 
@@ -98,7 +26,7 @@
                             <p align="right">Password: </p>
                         </div>
                         <div class="col-sm-8" align="left">
-                            <input type="password">
+                            <input type="password" required="Required" style="width: 220px" placeholder="********">
                         </div>
                     </div>
 
@@ -109,9 +37,3 @@
             </div>
         </div>
     </div>
-
-
-
-</body>
-
-</html>
