@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--JQuery link-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+
+    <!--FireBase scrip tag-->
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <!--JavaScript scrip tag-->
+    <script src="../assets/js/hostForm.js"></script>
+
+    <!-- external CSS styling -->
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <!--Google Fonts
+    
+        font-family: 'Notable', sans-serif;
+        font-family: 'Anton', sans-serif;
+        font-family: 'Varela Round', sans-serif;
+    
+    -->
+
+    <link href="https://fonts.googleapis.com/css?family=Anton|Notable|Varela+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="pageWrap">
+        <div class="container">
+            <nav class="navbar sticky-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h2><a class="spaceJam" href="../index.html">Space Jam</a></h2>
+                    </div>
+                    <div id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="html/renterForm.html"><span> Sign Up</span></a></li>
+                            <li><a href="../html/login.html"><span class="glyphicon glyphicon-log-in"></span><span>
+                                        Login</span></a></li>
+                            <li><a href="#" class="displayUserName dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
+                                        user</span></a>
+
+                                <div class="dropdown-menu profileOptions">
+                                    <a class="dropDownItem" href="#">Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropDownItem" href="#">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+
+    <div class="row formHolder postArea formContainer">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <h2 class="formInstructions text-center">Please fill out the following form:</h2>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right"> Title:</p>
+                </div>
+                <div class="col-sm-4">
+                    <input id="titleInput" class="input" type="text" required="Required">
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right">Address:</p>
+                </div>
+                <div class="col-sm-4">
+                    <input id="addressInput" class="input" type="text">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right">Description:</p>
+                </div>
+                <div class="col-sm-4">
+                    <!--IF javascript doesn't work with textarea on DESCRIPTION, probably because of textarea(switch back to input)-->
+                    <textarea id="descriptionInput" class="input" required="Required" placeholder="Tell us about your space!" rows="5" cols="35"></textarea>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right">Phone Number:</p>
+                </div>
+                <div class="col-sm-4">
+                    <input id="phoneNumberInput" class="input" type="text" required="Required" placeholder="000-000-0000">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right">Amount of People:</p>
+                </div>
+                <div class="col-sm-4">
+                    <select id = "size" name="size">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <span class="center">Amount:</span><input id="priceInput" class="input" type="text">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <span class="center">Top 3 Musicians:</span>
+                    
+                    <ul>
+                        <li><input id="topMusicianInput1" class="input" type="text">
+                        <li>
+                            <br>
+                        <li><input id="topMusicianInput2" class="input" type="text">
+                        <li>
+                            <br>
+                        <li><input id="topMusicianInput3" class="input" type="text">
+                        <li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <span class="center">Availability:</span><input id="availabilityInput" class="input" type="text">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <span class="center"> Upload an Image:</span><input name="Image" id="imageUploadInput" class="input" type="text">
+                </div>
+                <br>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-2">
+                    <input id="hostSubmitBtn" class="submitButton btn text-center" type="submit">
+                    <br><br><br>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
