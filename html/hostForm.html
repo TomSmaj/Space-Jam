@@ -40,144 +40,145 @@
 
     <link href="https://fonts.googleapis.com/css?family=Anton|Notable|Varela+Round" rel="stylesheet">
 </head>
-<body>
-<div class="pageWrap">       
-     <div class="container">
-        <nav class="navbar sticky-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <h2><a class="spaceJam" href="../index.html">Space Jam</a></h2>
-                </div>
-                <div id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="html/renterForm.html"><span> Sign Up</span></a></li>
-                        <li><a href="../html/login.html"><span class="glyphicon glyphicon-log-in"></span><span> Login</span></a></li>
-                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
-                                    user</span></a>
 
-                            <div class="dropdown-menu profileOptions">
-                                <a class="dropDownItem" href="#">Profile</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropDownItem" href="#">Logout</a>
-                            </div>
-                        </li>
+<body>
+    <div class="pageWrap">
+        <div class="container">
+            <nav class="navbar sticky-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h2><a class="spaceJam" href="../index.html">Space Jam</a></h2>
+                    </div>
+                    <div id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="html/renterForm.html"><span> Sign Up</span></a></li>
+                            <li><a href="../html/login.html"><span class="glyphicon glyphicon-log-in"></span><span>
+                                        Login</span></a></li>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="userName glyphicon glyphicon-user"></span><span>
+                                        user</span></a>
+
+                                <div class="dropdown-menu profileOptions">
+                                    <a class="dropDownItem" href="#">Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropDownItem" href="#">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+
+       
+        <div class="formContainer">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <h2 class="formInstructions text-center">Please fill out the following form:</h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center"> Quick Title:</span><input id="titleInput" class="input" type="text">
+                </div>
+                
+            </div>
+
+
+
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Address:</span><input id="addressInput" class="input" type="text">
+                </div>
+              
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Description:</span><textarea id="descriptionInput" class="input" rows="4" cols="25"></textarea>
+                </div>
+        
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Phone Number:</span><input id="phoneNumberInput" class="input" type="text">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Amount:</span><input id="priceInput" class="input" type="text">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Amount of People:</span> <select name="size">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Top 3 Musicians:</span>
+                    
+                    <ul>
+                        <li><input id="topMusicianInput1" class="input" type="text">
+                        <li>
+                            <br>
+                        <li><input id="topMusicianInput2" class="input" type="text">
+                        <li>
+                            <br>
+                        <li><input id="topMusicianInput3" class="input" type="text">
+                        <li>
                     </ul>
                 </div>
             </div>
-    
-    </nav>
-</div>
-</div>
-
-<div class="row formHolder postArea formContainer">
-    <div class="col-sm-1"></div>
-    <div class="col-sm-10">
-        <h2 class="formInstructions text-center">Please fill out the following form:</h2>
-        <br>
-        <div class="row">
-            <div class="col-sm-4">
-                <p align="right"> Title:</p>
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center">Availability:</span><input id="availablityInput" class="input" type="text">
+                </div>
             </div>
-            <div class="col-sm-4">
-                <input id = "titleInput" class="input" type="text">
+            <hr>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <span class="center"> Upload an Image:</span><input name="Image" id="imageUploadInput" class="input" type="file">
+                </div>
+                <br>
             </div>
-        </div>
-
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <p align="right">Address:</p>
-            </div>
-            <div class="col-sm-4">
-                <input id= "addressInput" class="input" type="text">
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <p align="right">Description:</p>
-            </div>
-            <div class="col-sm-4">
-                <!--IF javascript doesn't work with textarea on DESCRIPTION, probably because of textarea(switch back to input)-->
-                <textarea id="descriptionInput" class="input" rows="4" cols="25"></textarea>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <p align="right">Phone Number:</p>
-            </div>
-            <div class="col-sm-4">
-                <input id = "phoneNumberInput" class="input" type="text">
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <p align="right">Price:</p>
-            </div>
-            <div class="col-sm-4">
-                <input id= "priceInput" class="input" type="text">
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <p align="right">Amount of People:</p>
-            </div>
-            <div class="col-sm-4">
-                <select name="size">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>                    
-                  </select>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <p align="right">Top 3 Musicians:</p>
-            </div>
-            <div class="col-sm-4">
-                <ul>
-                    <li><input id= "topMusicianInput1" class="input" type="text"><li>
-                        <br>
-                    <li><input id= "topMusicianInput2" class="input" type="text"><li>
-                        <br>
-                    <li><input id= "topMusicianInput3" class="input" type="text"><li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <p align="right">Availability:</p>
-            </div>
-            <div class="col-sm-8">
-                <input id= "availablityInput" class="input" type="text">
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <p align="right"> Upload an Image:</p>
-            </div>
-            <br>
-            <input name="Image" id= "imageUploadInput" class="input" type="file">
-
             <hr>
             <div class="row">
                 <div class="col-sm-5"></div>
                 <div class="col-sm-2">
+                    <input id="hostSubmitBtn" class="submitButton btn text-center" type="submit">
+                    <br><br><br>
 
-<input id= "hostSubmitBtn" class="submitButton btn text-center" type="submit">
-        
-        
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
 </body>
+
 </html>
