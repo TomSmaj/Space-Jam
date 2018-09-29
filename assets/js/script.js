@@ -144,7 +144,7 @@ let postObject = {
 
 //function used
 function updateImage(selector, artist){
-    queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + artist + "&api_key=5e659e2a0405afeb019f7b17483f1df8&format=json";
+    queryURL = "https://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + artist + "&api_key=5e659e2a0405afeb019f7b17483f1df8&format=json";
 
     $.get(queryURL).then(response => {
         $(selector).attr("src", response.results.artistmatches.artist[0].image[2]['#text'])
