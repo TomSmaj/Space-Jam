@@ -69,8 +69,6 @@
 
             </nav>
         </div>
-
-       
         <div class="formContainer">
             <div class="row">
                 <div class="col-sm-1"></div>
@@ -110,10 +108,80 @@
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <span class="center">Phone Number:</span><input id="phoneNumberInput" class="input" type="text">
+=======
+    </div>
+
+    <div class="row formHolder postArea formContainer">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <h2 class="formInstructions text-center">Please fill out the following form:</h2>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right"> Title:</p>
+                </div>
+                <div class="col-sm-4">
+                    <input id="titleInput" class="input" type="text" required="Required">
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right">Address:</p>
+                </div>
+                <div class="col-sm-4">
+                    <input id="addressInput" class="input" type="text">
                 </div>
             </div>
             <hr>
             <div class="row">
+                <div class="col-sm-4">
+                    <p align="right">Description:</p>
+                </div>
+                <div class="col-sm-4">
+                    <!--IF javascript doesn't work with textarea on DESCRIPTION, probably because of textarea(switch back to input)-->
+                    <textarea id="descriptionInput" class="input" required="Required" placeholder="Tell us about your space!" rows="5" cols="35"></textarea>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right">Phone Number:</p>
+                </div>
+                <div class="col-sm-4">
+                    <input id="phoneNumberInput" class="input" type="text" required="Required" placeholder="000-000-0000">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right">Price:</p>
+                </div>
+                <div class="col-sm-4">
+                    <input id="priceInput" class="input" type="text" required="Required" placeholder="$">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align="right">Amount of People:</p>
+                </div>
+                <div class="col-sm-4">
+                    <select name="size">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <span class="center">Amount:</span><input id="priceInput" class="input" type="text">
@@ -132,7 +200,6 @@
                         <option value="6">6</option>
                     </select>
                 </div>
-                
             </div>
             <hr>
             <div class="row">
@@ -174,10 +241,12 @@
                     <input id="hostSubmitBtn" class="submitButton btn text-center" type="submit">
                     <br><br><br>
 
+
                 </div>
             </div>
         </div>
     </div>
+
 
 </body>
 

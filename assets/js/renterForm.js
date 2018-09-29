@@ -11,63 +11,60 @@ var config = {
 firebase.initializeApp(config);
 
 let database = firebase.database();
-let userIdRef = database.ref('userIdRef');
-let postRef = database.ref('postRef');
+let hostRef = database.ref('hostRef');
+let userRef = database.ref('userRef');
 
 //This was used to initialize FireBase Data
 
 $(document).ready(function () {
-    //Load Logged in User from Session Memory
-    let loggedInObj;
-    loggedInObj = JSON.parse(sessionStorage.getItem("loggedInObj"));
-    console.log(loggedInObj);
+
 
     //When Button is clicked, make new post
-    if (loggedInObj[1] === "host"){
-    $(".submitButton").on("click", function () {
-        //grabbing post ID from postIDref and incrementing by 1
-        console.log("clicked");
+    $(".signUpSubmitButton").on("click", function () {
+        let hostChecked = $(".hostRadio").is(":checked");
+        let userChecked = $(".rentRadio").is(":checked");
+        console.log(hostChecked);
+        console.log(userChecked);
 
-        userIdRef.once('value', function (snapshot) {
-            let newPostId = parseInt(snapshot.val().postId) + 1;
-            userIdRef.set({ postId: newPostId });
+        if (hostChecked) {
+            let hostSignUp = {
+                userName: $(".rentUserName").val(),
+                passWord: $(".rentPass").val(),
+                posts: "",
+                type: "host"             
+    };
+            console.log(hostSignUp);
+            
+            hostRef.push(hostSignUp);
+            
 
-        let tempArray = {
-            0:$("#topMusicianInput1").val(),
-            1:$("#topMusicianInput2").val(),
-            2:$("#topMusicianInput3").val()
+            setTimeout(function(){
+                window.location.href = "login.html";
+                }, 1500);
+
+    }   else if (userChecked) {
+            let userSignUp = {
+                userName: $(".rentUserName").val(),
+                passWord: $(".rentPass").val(),
+                spacesBooked: "",
+                type: "user"
+    }
+            console.log(userSignUp);
+            userRef.push(userSignUp);
+            
+
+            setTimeout(function(){
+                window.location.href = "login.html";
+                }, 1500);
+            
         }
-        let hostForm = {
-            postId: newPostId,
-            title: $("#titleInput").val(),
-            address: $("#addressInput").val(),
-            info: $("#descriptionInput").val(),
-            phone: $("#phoneNumberInput").val(),
-            price: $("#priceInput").val(),
-            size: $("#sizeInput").val(),
-            topMusic: tempArray,
-            availability: $("#availabilityInput").val(),
-            status: false,
-            bookedBy: '',
-            host: loggedInObj[2],
-            image: $("#imageUploadInput").val(),
-            }
-
-            postRef.push(hostForm);
-        })
-        //Take data from input fields, store in object
-
-        console.log("title input: " + $("#titleInput").val())
+        else {
+            console.log("invalid");
+        }
         
-        //push object into postRef firebase
-        
-        setTimeout(function(){
-            window.location.href = "confirmation.html";
-            }, 1500);
-        })
-    //update postId and setting to postID ref 
+
+    })
+
     
-    
-}
 
 })
